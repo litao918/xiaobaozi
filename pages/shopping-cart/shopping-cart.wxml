@@ -1,0 +1,15 @@
+<!--pages/shopping-cart/shopping-cart.wxml-->
+<view class='content'>
+  <view class='shopping-list'>
+    <view class='shopping-item'>
+      <view class='Commodity-figure'></view>
+      <view class='product-description'>
+        <view class='description-item1'><text style='font-size:30rpx;font-weight:bold;color:rgba(51,51,51,1);'>小笼包</text></view>
+        <view class='description-item2'><text style='font-size:30rpx;font-weight:bold;color:rgba(51,51,51,1);'>小笼包</text></view>
+      </view>
+    </view>
+    <view class='shopping-item'></view>
+    <view class='shopping-item'></view>
+  </view>
+</view>
+<view class='submit-navigation'></view>
