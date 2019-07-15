@@ -2,12 +2,15 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
-    "pages/Shopping_cart/Shopping_cart",
-    "pages/Personal_center/Personal_center",
     "pages/shopping-cart/shopping-cart",
     "pages/ceshi/ceshi",
     "pages/My_oder/My_oder",
-    "pages/Coupons/Coupons"
+    "pages/Coupons/Coupons",
+    "pages/Personal_center/Personal_center",
+    "pages/shopping-cart/shopping-cart",
+    "pages/shopping-cart-null/shopping-cart-null",
+    "pages/confirm-order/confirm-order",
+    "pages/coupon/coupon"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -26,7 +29,7 @@
         "selectedIconPath": "./img/zhengque.png"
       },
       {
-        "pagePath": "pages/Shopping_cart/Shopping_cart",
+        "pagePath": "pages/shopping-cart/shopping-cart",
         "text": "购物车",
         "iconPath": "./img/zhengque.png",
         "selectedIconPath": "./img/zhengque.png"

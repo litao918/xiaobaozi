@@ -39,10 +39,10 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": 3,
 			"list": [
 				{
-					"id": -1,
+					"id": 0,
 					"name": "购物车",
 					"pathName": "pages/shopping-cart/shopping-cart",
 					"query": "",
@@ -50,29 +50,23 @@
 				},
 				{
 					"id": -1,
-					"name": "测试",
-					"pathName": "pages/ceshi/ceshi",
+					"name": "购物车（空）",
+					"pathName": "pages/shopping-cart-null/shopping-cart-null",
 					"query": "",
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "我的",
-					"pathName": "pages/Personal_center/Personal_center",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "我的订单",
-					"pathName": "pages/My_oder/My_oder",
+					"id": 2,
+					"name": "确认订单",
+					"pathName": "pages/confirm-order/confirm-order",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
 					"name": "优惠券",
-					"pathName": "pages/Coupons/Coupons",
+					"pathName": "pages/coupon/coupon",
+					"query": "",
 					"scene": null
 				}
 			]

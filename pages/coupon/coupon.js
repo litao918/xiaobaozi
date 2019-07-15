@@ -1,11 +1,11 @@
-// pages/shopping-cart/shopping-cart.js
+// pages/coupon/coupon.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    identification:0, /*弹窗控制按钮*/
+
   },
 
   /**
@@ -15,18 +15,6 @@ Page({
 
   },
 
-  //立即购买方法
-  buy(){
-   this.setData({
-     identification:1
-   })
-  },
-  // 点击取消选择配送方式
-  chanel(){
-    this.setData({
-      identification: 0
-    })
-  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
