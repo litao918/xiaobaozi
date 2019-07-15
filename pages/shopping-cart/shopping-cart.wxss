@@ -2,9 +2,10 @@
 .content{
   width: 100%;
   height: 100%;
-  min-height: 1218rpx;
+  min-height: 1168rpx;
   background-color:white;
-  padding: 50rpx 0 0 0;
+  padding: 50rpx 0 90rpx 0;
+  box-sizing: border-box;
 }
 /* 购物车列表 */
 .shopping-list{
@@ -16,15 +17,16 @@
 /* 商品项*/
 .shopping-item{
   width: 100%;
-  height: 168rpx;
+  height: 169rpx;
   background-color: red;
   margin-bottom: 50rpx;
   display: flex;
+  box-sizing: border-box;
 }
 /*商品图*/
 .Commodity-figure{
-  height: 168rpx;
-  width: 168rpx;
+  height: 169rpx;
+  width: 169rpx;
   background-color: yellow
 }
 /*商品描述*/
@@ -33,22 +35,64 @@
   height: 100%;
   background-color: white;
   box-sizing: border-box;
+  overflow: hidden;
 }
 /*商品秒速part1文字*/
 .description-item1{
-  width: 100%;
-  height: 35rpx;
-  margin-bottom: 44rpx;
-  /* background-color: blue; */
+  width: 494rpx;
+  height: 29rpx;
+  margin-bottom: 33rpx;
   padding: 0 0 0 26rpx;
-  
 }
 /*商品秒速part2文字*/
 .description-item2{
-  font-size:24px;
+  height: 23rpx;
+  width: 494rpx;
+  margin-bottom:38rpx;
+  padding: 0 0 0 26rpx;
+  justify-content: center
+}
+/* 商品描述part3文字 */
+.description-item3{
+  height: 48rpx;
+  width: 494rpx;
+  display: flex;
+  padding: 0 0 0 26rpx;
+  justify-content: space-between
+}
+/* 购物车商品增减按钮 */
+.increase{
+  height: 100%;
+  font-size:24rpx;
   font-family:PingFang-SC-Bold;
-  font-weight:bold;
-  color:rgba(153,153,153,1);
+  display: flex;
+}
+/* 商品删减图标 */
+.increase-deleticon{
+  height: 44rpx;
+  width: 44rpx;
+  border: 1rpx #999999 solid;
+  border-radius:50%;
+  font-size: 20rpx;
+  text-align: center;
+  line-height: 40rpx;
+  margin-right: 20rpx;
+}
+/* 商品增减数量 */
+.increase-num{
+  height: 100%;
+  line-height: 45rpx;
+  margin-right: 20rpx;
+  font-weight: bold;
+}
+/* 商品增加图标 */
+.increase-addicon{
+  height: 44rpx;
+  width: 44rpx;
+  font-size: 30rpx;
+  background-color: #F6D047;
+  border-radius:50%;
+  text-align: center;
 }
 /*底部提交栏*/
 .submit-navigation{
@@ -57,4 +101,29 @@
   height:88rpx;
   bottom: 0;
   background-color: #F5F5F5;
+  display: flex;
+  box-sizing: border-box;
+  padding: 0 28rpx;
+  justify-content: space-between;
+}
+/* 底部提交栏金额 */
+.navigation-price{
+  height: 100%;
+  width: 30%;
+  font-size:24rpx;
+  font-weight:bold;
+  line-height: 88rpx;
+  color: #999999;
+}
+/* 底部提交按钮 */
+.navigation-submit{
+  width:138rpx;
+  height:60rpx;
+  background:rgba(252,211,40,1);
+  border-radius:30rpx;
+  margin-top: 15rpx;
+  line-height: 60rpx;
+  font-size:24rpx;
+  font-weight:bold;
+  text-align: center;
 }
