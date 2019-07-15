@@ -2,13 +2,39 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
+    "pages/Shopping_cart/Shopping_cart",
+    "pages/Personal_center/Personal_center"
     "pages/shopping-cart/shopping-cart"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "首页",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#FF6C00",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "./img/zhengque.png",
+        "selectedIconPath": "./img/zhengque.png"
+      },
+      {
+        "pagePath": "pages/Shopping_cart/Shopping_cart",
+        "text": "购物车",
+        "iconPath": "./img/zhengque.png",
+        "selectedIconPath": "./img/zhengque.png"
+      },
+      {
+        "pagePath": "pages/Personal_center/Personal_center",
+        "text": "我的",
+        "iconPath": "./img/zhengque.png",
+        "selectedIconPath": "./img/zhengque.png"
+      }
+    ]
   },
   "sitemapLocation": "sitemap.json"
 }
