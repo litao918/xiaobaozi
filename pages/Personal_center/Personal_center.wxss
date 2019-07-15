@@ -1,1 +1,36 @@
 /* pages/Personal_center/Personal_center.wxss */
+
+.gerenxinxi{
+  display: flex;
+  justify-content: space-between;
+
+  margin: 30rpx;
+  margin-top: 60rpx;
+}
+
+.wodedingdan{
+  display: flex;
+  justify-content: space-between;
+  margin: 0 30rpx;
+  padding: 30rpx 0;
+  border-bottom: 1rpx solid #f5f5f5;
+  position: relative;
+}
+
+.yuyan{
+  position: absolute;
+  right: 0;
+  top: 80rpx;
+  width: 166rpx;
+  border: 1rpx solid #f5f5f5;
+  z-index: 99;
+  background: #fff;
+  font-size: 30rpx;
+  text-align: center;
+
+  
+}
+
+.yuyan > view{
+  padding: 10rpx 0;
+}

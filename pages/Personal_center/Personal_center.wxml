@@ -1,2 +1,39 @@
-<!--pages/Personal_center/Personal_center.wxml-->
-<text>pages/Personal_center/Personal_center.wxml</text>
+
+
+<view class='gerenxinxi'>
+  <view>
+    <view style='font-size:48rpx;color:#000;font-weight:bold;'>萧大大</view>
+    <view style='font-size:24rpx;color:#000;'>{{languagebao.Personalinformation}}</view>
+  </view>
+
+  <view style='height:120rpx;width:120rpx;'> <image style='height:100%;width:100%；'></image> </view>
+
+</view>
+
+<view style='height:20rpx;background:#f5f5f5;width:100%;'></view>
+
+<view class='wodedingdan'>
+    <view>{{languagebao.myoder}}</view>
+    <view style='height:25rpx;width:20rpx;'><image style='height:100%;width:100%' src='../../img/dayuhao.png'></image></view>
+</view>
+
+<view class='wodedingdan' >
+    <view>{{languagebao.language}}</view>
+    <view style='display:flex' bindtap='Languageselection'>
+    <view style='padding-right:20rpx;' >{{ language }}</view>
+     <view style='height:25rpx;width:20rpx;'><image style='height:100%;width:100%' src='../../img/dayuhao.png'></image></view>
+    </view>
+    <view class='yuyan' style="display:{{ selection ? 'block' : 'none' }}">
+      <view style='border-bottom: 1rpx solid #F5F5F5;' data-type='简体中文' bindtap='chinese'>简体中文</view>
+      <view data-type='English' bindtap='English'>English</view>
+    </view>
+</view>
+
+<view class='wodedingdan'>
+    <view>{{languagebao.coupons}}</view>
+   <view style='display:flex'>
+    <view style='padding-right:20rpx;color:#999;'>2张</view>
+     <view style='height:25rpx;width:20rpx;'><image style='height:100%;width:100%' src='../../img/dayuhao.png'></image></view>
+    </view>
+</view>
+

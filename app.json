@@ -3,8 +3,11 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/Shopping_cart/Shopping_cart",
-    "pages/Personal_center/Personal_center"
-    "pages/shopping-cart/shopping-cart"
+    "pages/Personal_center/Personal_center",
+    "pages/shopping-cart/shopping-cart",
+    "pages/ceshi/ceshi",
+    "pages/My_oder/My_oder",
+    "pages/Coupons/Coupons"
   ],
   "window": {
     "backgroundTextStyle": "light",
