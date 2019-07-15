@@ -125,5 +125,16 @@
 </view>
 <view class='submit-navigation'>
   <view class='navigation-price'>共计<text style='font-size:36rpx;font-weight:bold;margin-left:10rpx;color:#F50B0B'><text style='font-size:24rpx;font-weight:bold;'>£</text>3.20</text></view>
-  <view class='navigation-submit'>立即购买</view>
+  <view class='navigation-submit' bindtap='buy'>立即购买</view>
+</view>
+<view class='Dialog' bindtap='chanel' style="{{identification?'display:block':'display:none'}}">
+</view>
+<view class='Dialog-content' style="{{identification?'display:block':'display:none'}}">
+  <view class='distribution'>请选择配送方式</view>
+  <view class='distribution-button1'>
+    <view class='button-text1'>自提</view>
+  </view>
+  <view class='distribution-button2'>
+    <view class='button-text2'>外卖</view>
+  </view>
 </view>

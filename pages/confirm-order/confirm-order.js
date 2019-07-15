@@ -1,4 +1,4 @@
-// pages/Shopping_cart/Shopping_cart.js
+// pages/confirm-order/confirm-order.js
 Page({
 
   /**

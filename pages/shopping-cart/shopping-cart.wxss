@@ -127,3 +127,75 @@
   font-weight:bold;
   text-align: center;
 }
+/* 弹窗 */
+.Dialog{
+  width: 100%;
+  height: 1223rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background:rgba(0,0,0,1);
+  opacity:0.8;
+}
+/* 弹窗内容 */
+.Dialog-content{
+  width: 470rpx;
+  height: 370rpx;
+  background:#FFFFFF;
+  border-radius:10px;
+  position: fixed;
+  z-index: 9999;
+  left: 140rpx;
+  top:240rpx;
+  padding-top: 58rpx;
+}
+/* 配送方式 */
+.distribution{
+  width: 100%;
+  height: 29rpx;
+  text-align: center;
+  line-height: 29rpx;
+  font-size:30rpx;
+  font-weight:bold;
+  color:rgba(51,51,51,1);
+  margin-bottom: 74rpx;
+}
+/* 配送按钮1 */
+.distribution-button1{
+  width: 100%;
+  height: 80rpx;
+  text-align: center;
+  padding: 0 55rpx;
+  box-sizing: border-box;
+  margin-bottom: 38rpx;
+  }
+  /* 自提按钮文字 */
+.button-text1{
+  background:rgba(252,211,40,1);
+  border-radius:40rpx;
+  height: 100%;
+  line-height: 80rpx;
+  width: 360rpx;
+  font-size:30rpx;
+  font-weight:bold;
+  color:rgba(0,0,0,1);
+}
+/* 配送按钮2 */
+.distribution-button2{
+  width: 100%;
+  height: 80rpx;
+  text-align: center;
+  padding: 0 55rpx;
+  box-sizing: border-box;
+}
+/* 外卖按钮文字 */
+.button-text2{
+  background:rgba(252,211,40,1);
+  border-radius:40rpx;
+  height: 100%;
+  line-height: 80rpx;
+  width: 360rpx;
+  font-size:30rpx;
+  font-weight:bold;
+  color:rgba(0,0,0,1);
+}
