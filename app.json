@@ -2,7 +2,6 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
-    "pages/shopping-cart/shopping-cart",
     "pages/ceshi/ceshi",
     "pages/My_oder/My_oder",
     "pages/Coupons/Coupons",
