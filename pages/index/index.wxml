@@ -17,28 +17,45 @@
 
 <!-- 商品内容 -->
 
-<view class='Shopping'>
-
-<!-- 选项卡 -->
-<view class='Shoppingbox1'>
-    <view>火热</view>
-    <view>火热</view>
-    <view>火热</view>
-</view>
-
-<!-- 内容 -->
-<view class='Shoppingbox2'>
-  <!-- 图片 -->
-  <view class='icon'></view>
-
-  <!-- 内容 -->
-  <view class='xiaolongbaobox'>
-      <view class='imgbox'></view>
-
-      <view class=''></view>
+<view class='main'>
+  <view class='left'>
+    <scroll-view scroll-y="true" style="height: 1100rpx" scroll-into-view="true" scroll-with-animation="true">
+      <block wx:for="{{leftText}}" wx:for-list="item">
+        <view class="{{classfiySelect == item.id?'active':''}}" data-id='{{item.id}}' bindtap='left_list'>
+          <text>{{item.text1}}</text>
+        </view>
+      </block>
+    </scroll-view>
   </view>
 
+
+  <view class='right'>
+    <scroll-view scroll-y="true" style="height: 1100rpx" bindscroll="scroll" scroll-top="{{scrollTop}}" scroll-into-view="{{'inToview'+rigId}}" scroll-with-animation="true">
+      <block wx:for="{{rightData}}" wx:for-list="item">
+        <view class='itemTitle' id="{{'inToview'+item.id}}">{{item.title}}</view>
+        <view bindtap='particulars' class='listItem' data-id='{{item.id}}'>
+          <block wx:for="{{item.frist}}">
+            <view class='listItem2' data-text="{{}}">
+              <view class='img'>
+                <image src='{{item.url}}'></image>
+              </view>
+              <view class='listText'>
+                <text>{{item.text}}</text>
+                <text class='money' style='font-size:24rpx;font-weight:bold;color:#999;'>¥{{item.money}}</text>
+                <view>
+                  <text style='color:#F50B0B;font-size:24rpx;'>£<text style='font-size:30rpx;margin:0;color:#F50B0B;'>3</text>.20</text>
+                   <view class='add'>
+                        <view class='Minus'></view>
+                        <view style='font-size:24rpx;line-height: 44rpx;margin:0 10rpx;'>1222.36</view>
+                        <view class='Minus'></view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </block>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
 </view>
 
-
-</view>
