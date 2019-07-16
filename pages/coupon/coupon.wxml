@@ -2,5 +2,8 @@
 <view class='content'>
   <view class='coupon'>
     <image style='width:100%;height:200rpx;' src='../../img/优惠券背景.png'></image>
+    <view class='discount'>
+      <view></view>
+    </view>
   </view>
 </view>
