@@ -230,14 +230,10 @@ Page({
     })
   },
 
-  scroll: function (e) {
-    console.log(e)
-    // this.setData({
-    //   scrollTop: e.detail.scrollTop
-    // })
-  },
+
   //滚动触发
   scroll: function (e) {
+    console.log('999嘻嘻嘻嘻嘻')
     var scrollTop = e.detail.scrollTop,
       h = 0,
       classfiySelect;

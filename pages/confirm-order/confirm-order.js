@@ -5,14 +5,45 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    // 语言
+    Chinese: {
+        pickupaddress:'提货地址',
+        takestime:'自提时间',
+        phonenumber:'联系电话',
+        goodsnumber:'商品数量',
+        pieces:'件',
+        accountpayable:'优惠券',
+        cardavailable:'张可用',
+        copewith:'应付',
+        preferential:'优惠',
+        totalprice:'总价',
+        immediatePayment:'线上支付',
+        tostorepayment: '到点支付',
+    },
+    English: {
+      pickupaddress: 'Pick up address',
+      takestime: 'Takes time',
+      phonenumber: 'phone number',
+      goodsnumber: 'Quantity of Commodity',
+      pieces: ' pieces',
+      accountpayable: 'account payable',
+      cardavailable: 'card available',
+      copewith: 'account payable',
+      preferential: 'preferential',
+      totalprice: 'total prices',
+      immediatePayment: 'immediate Payment',
+      tostorepayment: 'To store payment',
+    },
+    //当前语言包
+    languagepack:''
   },
+
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+   
   },
 
   /**
@@ -26,7 +57,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({
+      languagepack: this.data.English
+    })
   },
 
   /**

@@ -3,24 +3,24 @@
   <view class='pickup-address'>
     <view class='address-info'>
       <image style='width:28rpx;height:34rpx' src='../../img/地址-icon.png'></image>
-      <text style='font-size:30rpx;font-weight:bold;color:rgba(0,0,0,1); line-height:30rpx;margin-left:12rpx'>提货地址</text>
+      <text style='font-size:30rpx;font-weight:bold;color:rgba(0,0,0,1); line-height:30rpx;margin-left:12rpx'>{{languagepack.pickupaddress}}</text>
     </view>
     <view class='detailed-address'>伦敦某某某街道伦敦大学西门PoundBaozi店</view>
     <view class='Timetocall'>
       <view class='pickup-time'>
-        <view style='font-size:24rpx;font-weight:bold;color:rgba(153,153,153,1);margin-bottom:15rpx'>自提时间</view>
+        <view style='font-size:24rpx;font-weight:bold;color:rgba(153,153,153,1);margin-bottom:15rpx'>{{languagepack.takestime}}</view>
         <view style='font-size:24rpx;font-weight:bold;color:rgba(51,51,51,1);'>7月10日 18：20<text style='margin-left:35rpx'>></text></view>
       </view>
       <view class='pickup-phoen'>
-        <view style='font-size:24rpx;font-weight:bold;color:rgba(153,153,153,1);margin-bottom:15rpx'>联系电话</view>
+        <view style='font-size:24rpx;font-weight:bold;color:rgba(153,153,153,1);margin-bottom:15rpx'>{{languagepack.phonenumber}}</view>
           <view style='font-size:24rpx;font-weight:bold;color:rgba(51,51,51,1);'>18323398512<text style='margin-left:35rpx'>></text></view>
       </view>
     </view>
   </view>
   <view class='product'>
     <view class='commodity-statistics'>
-      <view style='font-size:24rpx;font-weight:bold;color:rgba(0,0,0,1);'>商品数量</view>
-      <view style='font-size:24rpx;font-weight:bold;color:rgba(0,0,0,1);'>2件</view>
+      <view style='font-size:24rpx;font-weight:bold;color:rgba(0,0,0,1);'>{{languagepack.goodsnumber}}</view>
+      <view style='font-size:24rpx;font-weight:bold;color:rgba(0,0,0,1);'>2{{languagepack.pieces}}</view>
     </view>
     <view class='product-list'>
       <view class='product-item'>
@@ -48,26 +48,26 @@
   </view>
   <view class='discount-coupon'>
     <view class='Coupon-details'>
-      <view>优惠券</view>
-      <view>1张可用</view>
+      <view>{{languagepack.accountpayable}}</view>
+      <view>1{{languagepack.cardavailable}}</view>
     </view>
   </view>
   <view class='Preferential-module'>
     <view class='Preferential-item'>
-      <view style='font-size:24rpx;font-weight:bold;color:rgba(153,153,153,1);line-height:90rpx;'>应付</view>
+      <view style='font-size:24rpx;font-weight:bold;color:rgba(153,153,153,1);line-height:90rpx;'>{{languagepack.copewith}}</view>
       <view style='font-size:24rpx;font-weight:bold;color:rgba(245,11,11,1);line-height:90rpx;'>£15.40</view>
     </view>
     <view class='Preferential-item'>
-      <view style='font-size:24rpx;font-weight:bold;color:rgba(153,153,153,1);line-height:90rpx;'>优惠</view>
+      <view style='font-size:24rpx;font-weight:bold;color:rgba(153,153,153,1);line-height:90rpx;'>{{languagepack.preferential}}</view>
       <view style='font-size:24rpx;font-weight:bold;color:rgba(245,11,11,1);line-height:90rpx;'>£15.40</view>
     </view>
     <view class='Preferential-item'>
-      <view style='font-size:24rpx;font-weight:bold;color:rgba(153,153,153,1);line-height:90rpx;'>总价</view>
+      <view style='font-size:24rpx;font-weight:bold;color:rgba(153,153,153,1);line-height:90rpx;'>{{languagepack.totalprice}}</view>
       <view style='font-size:24rpx;font-weight:bold;color:rgba(245,11,11,1);line-height:90rpx;'>£15.40</view>
     </view>
   </view>
   <view class='Payment-button'>
-    <view class='button1'>线上支付</view>
-    <view class='button2'>到店支付</view>
+    <view class='button1'>{{languagepack.immediatePayment}}</view>
+    <view class='button2'>{{languagepack.tostorepayment}}</view>
   </view>
 </view>

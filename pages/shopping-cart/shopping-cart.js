@@ -6,6 +6,7 @@ Page({
    */
   data: {
     identification:0, /*弹窗控制按钮*/
+
   },
 
   /**
