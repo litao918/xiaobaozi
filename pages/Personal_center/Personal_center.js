@@ -31,8 +31,13 @@ Page({
     language: '简体中文',
     languagebao:''
 
-   
-  
+  },
+
+  // 我的订单
+  myorder:function(){
+    wx.navigateTo({
+      url: '../My_oder/My_oder',
+    })
   },
 
   //显示语言选择弹窗

@@ -1,0 +1,15 @@
+/* pages/orderdetails/orderdetails.wxss */
+page{
+  background:#f5f5f5;
+ 
+}
+.erweima{
+    width: 280rpx;
+    height: 280rpx;
+    border: 1rpx solid darkgoldenrod;
+    margin: auto;
+    margin-top: 57rpx;
+    margin-bottom: 30rpx;
+   
+   
+}

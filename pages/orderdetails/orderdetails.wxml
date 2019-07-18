@@ -1,0 +1,33 @@
+<!--pages/orderdetails/orderdetails.wxml-->
+
+<view style='background:#fff;padding-top:50rpx;padding-bottom:30rpx;margin:30rpx;text-align: center;border-radius: 10px;'>
+    <view style='font-size:36rpx;color:#000;font-weight:bold;'>请向店家出示您的提货二维码</view>
+    <view class='erweima'>二维码</view>
+    <view style='font-size:36rpx;color:#999;font-weight:bold;padding-bottom:16rpx;'>提货码</view>
+    <view style='font-size:36rpx;color:#000;font-weight:bold;'>157 8736 8046</view>
+</view>
+
+<view style='background:#fff;padding-top:30rpx;padding-bottom:20rpx;margin:30rpx;text-align: center;border-radius: 10px;'>
+    <view style='display:flex;  border-bottom:1rpx solid #EEEEEE;'>
+     <view style='height:26rpx;width:26rpx;padding:20rpx 0;'><image style='height:100%;width:100%;'></image></view>
+     <view style='font-size:32rpx;color:#000;font-weight:bold;'>PoundBaozi</view>
+    </view>
+
+    <view style='display:flex;'>
+     <view style='height:26rpx;width:26rpx;padding:30rpx 0;'><image style='height:100%;width:100%;'></image></view>
+     <view style='font-size:24rpx;color:#999;font-weight:bold;padding:30rpx 0;'>伦敦某某某街道伦敦大学西门PoundBaozi店</view>
+    </view> 
+</view>
+
+<!-- 菜单 -->
+<view style='background:#fff;padding-top:30rpx;padding-bottom:20rpx;margin:30rpx;text-align: center;border-radius: 10px;'>
+    <view style='display:flex;'>
+     <view style='height:26rpx;width:26rpx;'><image style='height:100%;width:100%;'></image></view>
+     <view style='font-size:32rpx;color:#000;font-weight:bold;'>菜单</view>
+    </view>
+
+    <view style='display:flex;'>
+     <view style='height:26rpx;width:26rpx;'><image style='height:100%;width:100%;'></image></view>
+     <view style='font-size:24rpx;color:#999;font-weight:bold;padding:12rpx 0;'>伦敦某某某街道伦敦大学西门PoundBaozi店</view>
+    </view> 
+</view>

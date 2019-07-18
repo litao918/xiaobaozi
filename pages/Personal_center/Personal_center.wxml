@@ -6,13 +6,13 @@
     <view style='font-size:24rpx;color:#000;'>{{languagebao.Personalinformation}}</view>
   </view>
 
-  <view style='height:120rpx;width:120rpx;'> <image style='height:100%;width:100%；'></image> </view>
+  <view style='height:120rpx;width:120rpx;'> <image style='height:100%;width:100%;'></image> </view>
 
 </view>
 
 <view style='height:20rpx;background:#f5f5f5;width:100%;'></view>
 
-<view class='wodedingdan'>
+<view class='wodedingdan' bindtap='myorder'>
     <view>{{languagebao.myoder}}</view>
     <view style='height:25rpx;width:20rpx;'><image style='height:100%;width:100%' src='../../img/dayuhao.png'></image></view>
 </view>

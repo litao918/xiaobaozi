@@ -1,0 +1,28 @@
+/* pages/successfully/successfully.wxss */
+/* pages/Paysuccess/Paysuccess.wxss */
+.wancheng{
+  text-align: center;
+  width: 480rpx;
+  height:68rpx;
+  background:#FCD328;
+  border-radius: 34rpx;
+  line-height: 68rpx;
+  margin: 0 auto;
+  margin-bottom: 40rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+  
+}
+
+.fanhuishouye{
+  text-align: center;
+  width: 480rpx;
+  height:68rpx;
+  border-radius: 34rpx;
+  line-height: 68rpx;
+  border: 1rpx solid #FCD328;
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #999;
+  margin: 0 auto;
+}

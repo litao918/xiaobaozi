@@ -1,0 +1,14 @@
+<!--pages/Paysuccess/Paysuccess.wxml-->
+<!-- 支付成功 -->
+<view>
+    <view style='height:140rpx;width:140rpx;margin:180rpx auto;margin-bottom:0rpx;'>
+      <image src='../../img/zhengque1.png' style='height:100%;width:100%;'></image>
+</view>
+    <view style='font-weight:bold;font-size:30rpx;color:#000;text-align: center;'>{{selectpackage.paysuccess}}</view>
+    <view style='font-weight:bold;font-size:60rpx;color:#000;text-align: center;margin-top:35rpx;margin-bottom:100rpx;'>￥80.00</view>
+</view>
+
+<view class='wancheng'>{{selectpackage.finish}}</view>
+<view class='fanhuishouye'>{{selectpackage.backhomepage}}</view>
+
+

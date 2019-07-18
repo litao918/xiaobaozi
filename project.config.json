@@ -4,16 +4,17 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
-		"autoAudits": false
+		"autoAudits": false,
+		"checkInvalidKey": true
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.7.4",
-	"appid": "wx4b2892e6cc168b43",
+	"appid": "wxe86c54c19affec6b",
 	"projectname": "%E5%8C%85%E5%AD%90",
 	"debugOptions": {
 		"hidedInDevtools": []
@@ -39,7 +40,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 7,
 			"list": [
 				{
 					"id": 0,
@@ -66,6 +67,34 @@
 					"id": -1,
 					"name": "优惠券",
 					"pathName": "pages/coupon/coupon",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "登录授权",
+					"pathName": "pages/login/login",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 5,
+					"name": "下单成功",
+					"pathName": "pages/Paysuccess/Paysuccess",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "支付成功",
+					"pathName": "pages/successfully/successfully",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "订单详情",
+					"pathName": "pages/orderdetails/orderdetails",
 					"query": "",
 					"scene": null
 				}

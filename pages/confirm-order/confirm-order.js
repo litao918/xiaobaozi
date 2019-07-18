@@ -1,4 +1,5 @@
 // pages/confirm-order/confirm-order.js
+  const app = getApp()
 Page({
 
   /**
@@ -57,9 +58,16 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.setData({
-      languagepack: this.data.English
-    })
+    var language = app.globalData.language
+    if (language == 1){
+     this.setData({
+       languagepack: this.data.Chinese
+     })
+   }else{
+      this.setData({
+        languagepack: this.data.English
+      })
+   }
   },
 
   /**

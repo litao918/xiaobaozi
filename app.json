@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/login/login",
     "pages/index/index",
     "pages/logs/logs",
     "pages/ceshi/ceshi",
@@ -9,7 +10,10 @@
     "pages/shopping-cart/shopping-cart",
     "pages/shopping-cart-null/shopping-cart-null",
     "pages/confirm-order/confirm-order",
-    "pages/coupon/coupon"
+    "pages/coupon/coupon",
+    "pages/Paysuccess/Paysuccess",
+    "pages/successfully/successfully",
+    "pages/orderdetails/orderdetails"
   ],
   "window": {
     "backgroundTextStyle": "light",
