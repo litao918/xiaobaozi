@@ -46,7 +46,7 @@
 
     </view>
   </view>
-  <view class='discount-coupon'>
+  <view class='discount-coupon' bindtap='tocoupon'>
     <view class='Coupon-details'>
       <view>{{languagepack.accountpayable}}</view>
       <view>1{{languagepack.cardavailable}}</view>

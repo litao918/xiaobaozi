@@ -1,5 +1,5 @@
 // pages/confirm-order/confirm-order.js
-  const app = getApp()
+const app = getApp()
 Page({
 
   /**
@@ -7,7 +7,7 @@ Page({
    */
   data: {
     // 语言
-    Chinese: {
+    chinese: {
         pickupaddress:'提货地址',
         takestime:'自提时间',
         phonenumber:'联系电话',
@@ -21,7 +21,7 @@ Page({
         immediatePayment:'线上支付',
         tostorepayment: '到点支付',
     },
-    English: {
+    english: {
       pickupaddress: 'Pick up address',
       takestime: 'Takes time',
       phonenumber: 'phone number',
@@ -35,6 +35,8 @@ Page({
       immediatePayment: 'immediate Payment',
       tostorepayment: 'To store payment',
     },
+    //语言选中状态
+    selected:"",
     //当前语言包
     languagepack:''
   },
@@ -58,18 +60,33 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var language = app.globalData.language
-    if (language == 1){
-     this.setData({
-       languagepack: this.data.Chinese
-     })
-   }else{
-      this.setData({
-        languagepack: this.data.English
-      })
-   }
+    this.setData({
+      selected: app.globalData.language
+    })
+    this.selectLanguagePack()
   },
 
+  //语言包的选择
+  selectLanguagePack() {
+    if (this.data.selected == 0) {
+      var data = this.data.english
+      this.setData({
+        languagepack: data
+      })
+    } else if (this.data.selected == 1) {
+      var data = this.data.chinese
+      this.setData({
+        languagepack: data
+      })
+    }
+  },
+
+  //跳转优惠券页面
+  tocoupon(){
+    wx.navigateTo({
+      url: '../coupon/coupon',
+    })
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */
