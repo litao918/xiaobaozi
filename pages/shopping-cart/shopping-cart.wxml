@@ -131,7 +131,7 @@
 </view>
 <view class='Dialog-content' style="{{identification?'display:block':'display:none'}}">
   <view class='distribution'>{{selectpackage.selecttext}}</view>
-  <view class='distribution-button1'>
+  <view class='distribution-button1' bindtap='toconfirmorder'>
     <view class='button-text1'>{{selectpackage.picktext}}</view>
   </view>
   <view class='distribution-button2'>

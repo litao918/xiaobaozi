@@ -80,6 +80,13 @@ Page({
       })
     }
   },
+
+  // 跳转订单确认接口
+  toconfirmorder(){
+    wx.navigateTo({
+      url: '../confirm-order/confirm-order',
+    })
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */
