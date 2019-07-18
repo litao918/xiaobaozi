@@ -1,4 +1,5 @@
 // pages/Personal_center/Personal_center.js
+const app = getApp()
 Page({
 
   /**
@@ -34,7 +35,7 @@ Page({
   
   },
 
-
+  //显示语言选择弹窗
   Languageselection:function () {
     var flg = !this.data.selection
       this.setData({
@@ -42,27 +43,27 @@ Page({
       })
   },
 
-  chinese:function(e){
-    var language = e.currentTarget.dataset.type
-    wx.setStorageSync('language', language)
-    var Chinese = this.data.Chinese
-    this.setData({
-      language: language,
-      selection:false,
-      languagebao: Chinese
-    })
-    console.log(Chinese)
-  },
-
-  English: function (e) {
-    var language = e.currentTarget.dataset.type
-    var English = this.data.English 
-    wx.setStorageSync('language', language)
-    this.setData({
-      language: language,
-      selection: false,
-      languagebao: English
-    })
+  //点击语言按钮中英文切换
+  switch:function(e){
+    console.log(e.currentTarget.dataset.type);
+    var copylanguage=e.currentTarget.dataset.type
+    if(copylanguage=="简体中文"){
+      app.globalData.language = 1
+      console.log("改变后的" + app.globalData.language);
+      var Chinese = this.data.Chinese
+      this.setData({
+        selection: false,
+        languagebao: Chinese
+      })
+    } else if (copylanguage =="English"){
+      app.globalData.language = 0
+      console.log("改变后的" + app.globalData.language);
+      var English = this.data.English
+      this.setData({
+        selection: false,
+        languagebao: English
+      })
+    }
   },
 
   /**
@@ -98,7 +99,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    const language = app.globalData.language
+    console.log("我是"+language)
   },
 
   /**

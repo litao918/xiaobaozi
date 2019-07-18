@@ -24,8 +24,8 @@
      <view style='height:25rpx;width:20rpx;'><image style='height:100%;width:100%' src='../../img/dayuhao.png'></image></view>
     </view>
     <view class='yuyan' style="display:{{ selection ? 'block' : 'none' }}">
-      <view style='border-bottom: 1rpx solid #F5F5F5;' data-type='简体中文' bindtap='chinese'>简体中文</view>
-      <view data-type='English' bindtap='English'>English</view>
+      <view style='border-bottom: 1rpx solid #F5F5F5;' data-type='简体中文' bindtap='switch'>简体中文</view>
+      <view data-type='English' bindtap='switch'>English</view>
     </view>
 </view>
 
