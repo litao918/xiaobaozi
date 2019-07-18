@@ -1,7 +1,6 @@
 //index.js
 //获取应用实例
 const app = getApp()
-
 Page({
   data: {
     classfiySelect: "",
@@ -214,13 +213,15 @@ Page({
   },
 
   onLoad: function () {
+    // console.log("我是"+language)
     this.setData({
       classfiySelect: this.data.leftText[0].id
     })
   },
-
-
-
+  onShow:function(){
+    const language = app.globalData.language
+    console.log("我是"+language)
+  },
 
   onPageScroll: function (e) {
     //console.log(e.scrollTop)
