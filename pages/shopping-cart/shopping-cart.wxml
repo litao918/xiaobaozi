@@ -1,4 +1,16 @@
 <!--pages/shopping-cart/shopping-cart.wxml-->
+<!-- 购物车为空显示 -->
+<view class="content1" style="display:{{shoppingnull? 'none' : 'block'}};">
+  <view class='Shopping-cart-icon'>
+    <image style='width:289rpx;height:248rpx;' src="../../img/购物车（空）.png"></image>
+  </view>
+  <view class='cue-words'>您的购物车是空的</view>
+  <view class='buy-button'>立即购买</view>
+</view>
+
+
+
+<view style="display:{{shoppingnull? 'block' : 'none'}};">
 <view class='content'>
   <view class='shopping-list'>
     <view class='shopping-item'>
@@ -9,9 +21,9 @@
         <view class='description-item3'>
           <text style='font-size:24rpx;font-weight:bold;line-height:47rpx;color:#F50B0B;'><text style='font-size:24rpx;font-weight:bold;color:#F50B0B;'>£</text><text style='font-size:36rpx;font-weight:bold;color:#F50B0B;'>3</text>.20</text>
           <view class='increase'>
-            <view class='increase-deleticon'>—</view>
+            <view class='increase-deleticon' bindtap='Reduction'>—</view>
             <view class='increase-num'>1</view>
-            <view class='increase-addicon'>+</view>
+            <view class='increase-addicon' bindtap='add'>+</view>
           </view>
         </view>
       </view>
@@ -137,4 +149,6 @@
   <view class='distribution-button2'>
     <view class='button-text2'>{{selectpackage.takeouttext}}</view>
   </view>
+</view>
+
 </view>

@@ -3,6 +3,7 @@
 const app = getApp()
 Page({
   data: {
+    rigId:'1',
     classfiySelect: "",
     leftText: [{
       id: "01",
@@ -31,10 +32,13 @@ Page({
    
  
     ],
-    rightData: [{
+    rightData: [
+      
+      {
       id: "01",
       title: "美妆专区",
-      frist: [{
+      frist: [
+        {
         url: "/images/85309.jpg",
         text: "卡姿兰补水套装",
         money: 200,
@@ -240,7 +244,7 @@ Page({
       classfiySelect;
     var that = this;
     that.data.leftText.forEach(function (clssfiy, i) {
-      var _h = 26 + that.length(clssfiy['id']) * 102;
+      var _h = 26 + that.length(clssfiy['id']) * 87;
       if (scrollTop >= h) {
         classfiySelect = clssfiy['id'];
       }
@@ -249,6 +253,7 @@ Page({
     })
     that.setData({
       classfiySelect: classfiySelect,
+
     })
   },
   //求每一栏高度

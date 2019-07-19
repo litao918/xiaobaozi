@@ -5,7 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tabrid:0
+    tabrid:0,
+    // 语言类型ID
+   
   },
 
   xuanxiangka: function (e) {
@@ -20,7 +22,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+   
   },
 
   /**

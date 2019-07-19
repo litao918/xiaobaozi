@@ -32,8 +32,11 @@
   <view class='right'>
     <scroll-view scroll-y="true" style="height: 1100rpx" bindscroll="scroll" scroll-top="{{scrollTop}}" scroll-into-view="{{'inToview'+rigId}}" scroll-with-animation="true">
       <block wx:for="{{rightData}}" wx:for-list="item">
+
         <view class='itemTitle' id="{{'inToview'+item.id}}">{{item.title}}</view>
+
         <view bindtap='particulars' class='listItem' data-id='{{item.id}}'>
+        
           <block wx:for="{{item.frist}}">
             <view class='listItem2' data-text="{{}}">
               <view class='img'>

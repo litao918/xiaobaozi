@@ -1,5 +1,7 @@
 <!--pages/My_oder/My_oder.wxml-->
 
+<view style="display:none">
+
 <view class='xuanxiangka'>
   <view bindtap='xuanxiangka' data-id='0' class="{{ tabrid == 0 ? 'acctive' : '' }}">全部 <view style="background:#FFD02B;height:4rpx;width:100%;margin-top:6rpx;display:{{ tabrid == 0 ? 'block' : 'none' }}"></view></view>
   <view bindtap='xuanxiangka' data-id='1' class="{{ tabrid == 1 ? 'acctive' : '' }}">待提货 <view style="background:#FFD02B;height:4rpx;width:100%;margin-top:6rpx;display:{{ tabrid == 1 ? 'block' : 'none' }}"></view></view>
@@ -26,7 +28,7 @@
 
 
 <view>
-<view style='background:#f5f5f5;width:100%;height:100%;'>
+  <view style='background:#f5f5f5;width:100%;height:100%;'>
 
  <view style='padding:30rpx;background:#fff;margin-top:30rpx;' >
         <view class='dingdan'>
@@ -72,49 +74,52 @@
 
 </view>
 
-<view style='background:#f5f5f5;width:100%;height:100%;'>
- <view style='padding:30rpx;background:#fff;margin-top:30rpx;' >
-        <view class='dingdan'>
-            <view style='font-size:24rpx;color:#999;padding-bottom:30rpx;'>下单时间: <text style='color:#333333'>2019-07-04  08:06</text> </view>
-            <view style='color:#F10A0A;font-size:28rpx;font-weight:bold;'>待提货</view>
-        </view>
-
-        <view style='border-radius: 10rpx;padding:30rpx; background: #f5f5f5;margin-bottom:27rpx;'>
-          <view class='dingdan' style='padding:20rpx 0;' >
-            <view>小笼包</view>
-            <view>x1</view>
-        </view> 
-
-          <view class='dingdan' style='padding:20rpx 0;' >
-            <view>小笼包</view>
-            <view>x1</view>
-        </view> 
-
-          <view class='dingdan' style='padding:20rpx 0;' >
-            <view>小笼包</view>
-            <view>x1</view>
-        </view> 
-
-      
-
-        </view>
-
-        <view class='zailaiyidan'>
-            <view></view>
-            <view>
-              <view style='font-size:24rpx;padding-left:76rpx;'>共计 <text style='color:#F10A0A'>4</text>件，总价<text style='color:#F10A0A'>£12.80</text> </view>
-                <view class='btn'>再来一单</view>
+    <view style='background:#f5f5f5;width:100%;height:100%;'>
+    <view style='padding:30rpx;background:#fff;margin-top:30rpx;' >
+            <view class='dingdan'>
+                <view style='font-size:24rpx;color:#999;padding-bottom:30rpx;'>下单时间: <text style='color:#333333'>2019-07-04  08:06</text> </view>
+                <view style='color:#F10A0A;font-size:28rpx;font-weight:bold;'>待提货</view>
             </view>
-        </view>
+
+            <view style='border-radius: 10rpx;padding:30rpx; background: #f5f5f5;margin-bottom:27rpx;'>
+              <view class='dingdan' style='padding:20rpx 0;' >
+                <view>小笼包</view>
+                <view>x1</view>
+            </view> 
+
+              <view class='dingdan' style='padding:20rpx 0;' >
+                <view>小笼包</view>
+                <view>x1</view>
+            </view> 
+
+              <view class='dingdan' style='padding:20rpx 0;' >
+                <view>小笼包</view>
+                <view>x1</view>
+            </view> 
+
+          
+
+            </view>
+
+            <view class='zailaiyidan'>
+                <view></view>
+                <view>
+                  <view style='font-size:24rpx;padding-left:76rpx;'>共计 <text style='color:#F10A0A'>4</text>件，总价<text style='color:#F10A0A'>£12.80</text> </view>
+                    <view class='btn'>再来一单</view>
+                </view>
+            </view>
+      </view>
+    </view>
+
   </view>
-</view>
+
 
 </view>
-
 
 <view class='meiyoudingdan'>
-    <view class='img2'></view>
-
+    <view class='img2'>
+      <image src='../../img/zanwudingdan.png' style='height:90%;width:130%;'></image>
+    </view>
     <view style='color:#333333;font-weight:bold;font-size:36rpx;'>暂无订单</view>
     <view style='color:#999;font-weight:bold;font-size:24rpx;margin-top:20rpx;'>您暂时还没有订单，快去购买吧~</view>
 
