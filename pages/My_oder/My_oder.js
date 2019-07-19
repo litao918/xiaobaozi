@@ -1,4 +1,5 @@
 // pages/My_oder/My_oder.js
+const app = getApp()
 Page({
 
   /**
@@ -36,9 +37,26 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({
+      selected: app.globalData.language
+    })
+    this.selectLanguagePack()
   },
 
+  //语言包的选择
+  selectLanguagePack() {
+    if (this.data.selected == 0) {
+      var data = this.data.english
+      this.setData({
+        selectpackage: data
+      })
+    } else if (this.data.selected == 1) {
+      var data = this.data.chinese
+      this.setData({
+        selectpackage: data
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */
