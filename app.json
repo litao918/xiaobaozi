@@ -28,7 +28,7 @@
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "./img/zhengque.png",
+        "iconPath": "./img/home.png",
         "selectedIconPath": "./img/zhengque.png"
       },
       {
