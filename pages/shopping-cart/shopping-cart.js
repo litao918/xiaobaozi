@@ -109,21 +109,15 @@ Page({
   // 购物车商品列表请求成功回调函数
   getproductlistSuccess(res){
     if (res.code == 1) {
-      if(res.data.length>0){
-        console.log(res.data)
-          this.setData({
-            goodslist: res.data
-          })
         console.log(this.data.goodslist)
-          this.setData({
-            shoppingnull: 1
-          });
-      }else{
         this.setData({
-          shoppingnull: 0
+          shoppingnull: 1,
+          goodslist: res.data
         });
-      }
-    } else {
+    } else if(res.code==2){
+      this.setData({
+        shoppingnull: 0
+      });
       wx.showToast({
         title: res.msg,
         icon: 'none',

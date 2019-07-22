@@ -1,0 +1,66 @@
+-<!--index.wxml-->
+
+<!-- 轮播 -->
+<swiper style='height:300rpx;padding:20rpx 30rpx;'  autoplay='true'  circular='true'>
+  <swiper-item wx:for="{{banner}}" wx:for-item="item" style="border-radius:8rpx;">
+    <image style='width:100%;height:100%' src='{{item.imager[0]}}'></image>
+  </swiper-item>
+</swiper>
+
+<!-- 优惠券 -->
+<view class='pd30 ft24 ftbold co333 coupons' style='line-height:26rpx;'>
+    <image src='../../img/message.png'></image>
+    <view style='padding-left:14rpx;'>您有一张新的优惠券发放至您的卡包，请前往查收！</view>
+</view>
+
+<!-- 灰条 -->
+<view style='background:#f5f5f5;height:20rpx;'></view>
+
+<!-- 商品内容 -->
+
+<view class='main'>
+  <view class='left'>
+    <scroll-view scroll-y="true" style="height: 1100rpx" scroll-into-view="true" scroll-with-animation="true">
+      <block wx:for="{{leftText}}" wx:for-list="item">
+        <view style='text-overflow: ellipsis;overflow: hidden;white-space: nowrap;'  class="{{classfiySelect == item.id?'active':''}}" data-id='{{item.id}}' bindtap='left_list'>
+          <text>{{selsected==0?item.ying_name:item.zhong_name}}</text>
+
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+
+
+  <view class='right'>
+    <scroll-view scroll-y="true" style="height: 1100rpx" bindscroll="scroll" scroll-top="{{scrollTop}}" scroll-into-view="{{'inToview'+rigId}}" scroll-with-animation="true">
+      <block wx:for="{{rightData}}" wx:for-list="item" wx:key='index' wx:for-index="bindex1">
+        <view class='itemTitle' id="{{'inToview'+item.id}}">{{selsected==0?item.ying_name:item.zhong_name}}</view>
+        <view bindtap='particulars' class='listItem' data-id='{{item.id}}'>
+          <block wx:for="{{item.shop}}" wx:for-item="value" wx:key='index' wx:for-index="bindex">
+            <view class='listItem2' data-text="{{}}">
+              <view class='img'>
+                <image style='width:168rpx;height:168rpx;' src='{{value.imager[0]}}'></image>
+              </view>
+              <view class='listText'>
+                <text>{{selsected==0?value.ying_name:value.zhong_name}}</text>
+                <text class='money' style='font-size:24rpx;font-weight:bold;color:#999;'>¥{{value.money}}</text>
+                <view>
+                  <text style='color:#F50B0B;font-size:24rpx;'>£<text style='font-size:30rpx;margin:0;color:#F50B0B;'>3</text>.20</text>
+                   <view class='add'>
+                        <view class='Minus' bindtap='reduce' data-index1='{{bindex}}' data-index2='{{bindex1}}'  style="display:{{value.num==0?'none':'block'}}">
+                          <image src='../../img/subtract.png' style='width:100%;height:100%'></image>
+                        </view>
+                        <view style='font-size:24rpx;line-height: 44rpx;margin:0 10rpx;'>{{value.num}}</view>
+                        <view class='Minus'  bindtap='add' data-index1='{{bindex}}' data-index2='{{bindex1}}'>
+                          <image src='../../img/add.png' style='width:100%;height:100%'></image>
+                        </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </block>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+</view>
