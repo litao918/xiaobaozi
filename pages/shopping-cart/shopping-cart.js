@@ -145,7 +145,7 @@ Page({
     this.setData({
       goodslist: data
     });
-    this.shoppingRequests(data[key].id, data[key].geshu, flag)
+    this.shoppingRequests(data[key].s_id, data[key].geshu, flag)
   },
   // 增加商品
   addGoods(e) {
@@ -156,7 +156,7 @@ Page({
     this.setData({
       goodslist: data
     });
-    this.shoppingRequests(data[key].id, data[key].geshu, flag)
+    this.shoppingRequests(data[key].s_id, data[key].geshu, flag)
   },
 
   //购物车数量增加减少后台请求接口
@@ -224,7 +224,7 @@ Page({
   toconfirmorder(){
     console.log(this.data.goodslist);
     wx.navigateTo({
-      url: '../confirm-order/confirm-order?purchased='+this.data.goodslist,
+      url: '../confirm-order/confirm-order',
     })
   },
   /**

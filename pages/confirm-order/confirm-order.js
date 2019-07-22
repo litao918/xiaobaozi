@@ -1,5 +1,6 @@
 // pages/confirm-order/confirm-order.js
 const app = getApp()
+var call = require("../../utils/api.js")
 Page({
 
   /**
@@ -38,7 +39,8 @@ Page({
     //语言选中状态
     selected:"",
     //当前语言包
-    languagepack:''
+    languagepack:'',
+    goodslist:[]//商品列表
   },
 
 
@@ -46,14 +48,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-   
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
   },
 
   /**
@@ -63,7 +63,8 @@ Page({
     this.setData({
       selected: app.globalData.language
     })
-    this.selectLanguagePack()
+    this.selectLanguagePack();//语言包选择
+    this.getproductlist();//商品列表
   },
 
   //语言包的选择
@@ -87,6 +88,41 @@ Page({
       url: '../coupon/coupon',
     })
   },
+
+  //获取商品列表 
+  getproductlist() {
+    var url = "appi/car/car_list";
+    var data = {
+      type: this.data.selected,
+      id: 1
+    }
+    call.request(url, data, this.getproductlistSuccess, this.getproductlistFail)
+  },
+  // 购物车商品列表请求成功回调函数
+  getproductlistSuccess(res) {
+    if (res.code == 1) {
+        console.log(res.data)
+        this.setData({
+          goodslist: res.data
+        })
+      wx.showToast({
+        title: res.msg,
+        icon: 'none',
+        duration: 1500
+      })
+    } else {
+      wx.showToast({
+        title: res.msg,
+        icon: 'none',
+        duration: 1500
+      })
+    }
+  },
+  // 购物车商品列表请求失败回调函数
+  getproductlistFail() {
+
+  },
+
   /**
    * 生命周期函数--监听页面隐藏
    */
