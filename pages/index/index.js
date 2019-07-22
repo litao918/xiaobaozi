@@ -11,6 +11,7 @@ Page({
     rightData: [],//商品列表字段
     scrollTop:'',
     navid:'0',
+    rigId:'0'
 
   },
 
@@ -78,6 +79,7 @@ Page({
   //商品分类请求成功回调函数
   gettypeSuccess(res){
     console.log(res)
+    console.log('=-=-=-=-=-=-=-=-=-=')
     if (res.code == 1) {
       this.setData({
         leftText: res.data
@@ -209,6 +211,7 @@ Page({
     var that = this;
     that.data.leftText.forEach(function (clssfiy, i) {
       console.log(clssfiy);
+      console.log('fffffffffffffffffffffff');
       var _h = 26 + that.length(clssfiy['id']) * 102;
       if (scrollTop >= h) {
         classfiySelect = clssfiy['id'];
@@ -238,6 +241,7 @@ Page({
     var l_id = e.currentTarget.dataset.id;
     that.setData({
       rigId: l_id,
+      classfiySelect:l_id
     })
   },
   //跳转详情界面

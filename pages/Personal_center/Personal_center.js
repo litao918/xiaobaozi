@@ -28,7 +28,7 @@ Page({
       coupons: 'My coupons',
     },
     selection: false,
-    language: '简体中文',
+    language: '',
     languagebao:'',
     //用户ID
     userid:1,
@@ -62,7 +62,8 @@ Page({
       var Chinese = this.data.Chinese
       this.setData({
         selection: false,
-        languagebao: Chinese
+        languagebao: Chinese,
+        language:'简体中文'
       })
     } else if (copylanguage =="English"){
       app.globalData.language = 0
@@ -70,7 +71,8 @@ Page({
       var English = this.data.English
       this.setData({
         selection: false,
-        languagebao: English
+        languagebao: English,
+        language:'English'
       })
     }
   },
@@ -88,19 +90,19 @@ Page({
   onLoad: function (options) {
 
 
-    var language = wx.getStorageSync('language')
+    var language = app.globalData.language
     var Chinese = this.data.Chinese
     var English = this.data.English
-    this.setData({
-      language: language
-    })
-    if (language == 'English'){
+    
+    if (language == 0){
         this.setData({
-          languagebao:English
+          languagebao:English,
+          language:'English'
         })
     }else{
       this.setData({
-        languagebao: Chinese
+        languagebao: Chinese,
+        language: '简体中文'
       })
     }
     var userid = this.data.userid
