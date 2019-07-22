@@ -1,5 +1,6 @@
 // pages/My_oder/My_oder.js
 const app = getApp()
+var call = require("../../utils/api.js")
 Page({
 
   /**
@@ -8,7 +9,28 @@ Page({
   data: {
     tabrid:0,
     // 语言类型ID
-   
+    selected:"",//语言包变量
+    orderlist:[],//订单列表
+    orderflag:0,//判断订单是否为空
+    chinese: {
+      category1: "未支付",
+      category2: "已支付",
+      category3: "已完成",
+      category4: "未取货",
+      ordertime: "下单时间:",
+      anotherlist: "再来一单",
+    },//中文包
+
+    english: {
+      category1: "Not Paid",
+      category2: "Paid",
+      category3: "Done",
+      category4: "NOT Take Stock",
+      ordertime: "order time:  ",
+      anotherlist: "Another list",
+    },//英文包
+
+    selectpackage: ''//当前选中的语言包
   },
 
   xuanxiangka: function (e) {
@@ -40,7 +62,8 @@ Page({
     this.setData({
       selected: app.globalData.language
     })
-    this.selectLanguagePack()
+    this.selectLanguagePack(),//语言包切换函数
+    this.getorder()//获取订单
   },
 
   //语言包的选择
@@ -56,6 +79,33 @@ Page({
         selectpackage: data
       })
     }
+  },
+  //获得订单
+  getorder(){
+    var url ="appi/user/user_order_list";
+    var data={
+      type:this.data.selected,
+      id:1
+    }
+    call.request(url, data, this.getorderSuccess, this.getorderFail)
+  },
+  // 获得订单请求成功回调
+  getorderSuccess(res){
+    console.log(res);
+    if(res.code==1){
+      this.setData({
+        orderlist:res.data,
+        orderflag:1
+      })
+    }else if(res.code==2){
+      this.setData({
+        orderflag: 0
+      })
+    }
+  },
+  // 获得订单请求失败回调
+  getorderFail() {
+
   },
   /**
    * 生命周期函数--监听页面隐藏
