@@ -1,6 +1,7 @@
 <!--pages/coupon/coupon.wxml-->
 <view class='content'>
-  <view class='coupon'>
+ <view style="text-align:center;color:#ccc;display:{{there ? 'none' : 'block'}}">暂无优惠券</view>
+  <view class='coupon' style="display:{{there ? 'block' : 'none'}}">
     <image style='width:100%;height:200rpx;' src='../../img/优惠券背景.png'></image>
     <view class='discount'> 
       <view class='money'>£<text style='margin-left:14rpx;font-size:60rpx;font-family:PingFang-SC-Bold;font-weight:bold;line-height:54rpx;'>20</text></view>
@@ -14,4 +15,6 @@
     </view>
     <view class='use'>{{selectpackage.use}}</view>
   </view>
+ 
 </view>
+

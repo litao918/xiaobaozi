@@ -19,7 +19,7 @@ Page({
         preferential:'优惠',
         totalprice:'总价',
         immediatePayment:'线上支付',
-        tostorepayment: '到点支付',
+        tostorepayment: '到店支付',
     },
     english: {
       pickupaddress: 'Pick up address',
@@ -38,7 +38,25 @@ Page({
     //语言选中状态
     selected:"",
     //当前语言包
-    languagepack:''
+    languagepack:'',
+    //自提地址
+    address:'',
+    //用户id
+    userid:1
+
+  },
+
+  // 支付提交
+  since_payment:function(e){
+    console.log(e.currentTarget.dataset.id)
+    //支付方式
+    var fangshi = e.currentTarget.dataset.id 
+    //中英文类型
+    var type = app.globalData.language
+    //地址
+    var tihuotime = this.data.address
+    //用户ID
+    var u_id = this.data.userid
   },
 
 
@@ -46,7 +64,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-   
+  
+    var type = app.globalData.language
+    var that= this
+    // 自提地址
+    wx.request({
+      url: 'http://baoziwang.cqlink.club/appi/order/dizhi',
+      data: {
+        type: type
+      },
+      method: 'POST',
+      success: function (res) {
+        console.log(res.data.msg)
+        that.setData({
+          address: res.data.msg
+        })
+      }
+    })
   },
 
   /**

@@ -5,7 +5,7 @@
       <image style='width:28rpx;height:34rpx' src='../../img/地址-icon.png'></image>
       <text style='font-size:30rpx;font-weight:bold;color:rgba(0,0,0,1); line-height:30rpx;margin-left:12rpx'>{{languagepack.pickupaddress}}</text>
     </view>
-    <view class='detailed-address'>伦敦某某某街道伦敦大学西门PoundBaozi店</view>
+    <view class='detailed-address'>{{address}}</view>
     <view class='Timetocall'>
       <view class='pickup-time'>
         <view style='font-size:24rpx;font-weight:bold;color:rgba(153,153,153,1);margin-bottom:15rpx'>{{languagepack.takestime}}</view>
@@ -67,7 +67,7 @@
     </view>
   </view>
   <view class='Payment-button'>
-    <view class='button1'>{{languagepack.immediatePayment}}</view>
-    <view class='button2'>{{languagepack.tostorepayment}}</view>
+    <view class='button1' data-id='1' bindtap='since_payment'>{{languagepack.immediatePayment}}</view>
+    <view class='button2' data-id='2' bindtap='since_payment'>{{languagepack.tostorepayment}}</view>
   </view>
 </view>

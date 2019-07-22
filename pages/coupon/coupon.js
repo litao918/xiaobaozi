@@ -21,14 +21,40 @@ Page({
       use:"use"
     },//英文包
 
-    selectpackage: ''//当前选中的语言包
+    selectpackage: '',//当前选中的语言包
+    userid:1,//用户id
+    there:true,//是否有优惠券
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var type = app.globalData.language
+    var userid = this.data.userid
+    var that = this
+    wx.request({
+      url: 'http://baoziwang.cqlink.club/appi/user/user_sp_list',
+      data: {
+        id: userid,
+        type: type
+      },
+      method: 'POST',
+      success: function (res) {
+        console.log(res.data.code)
+      
+        if (res.data.code == 2){
+          that.setData({
+            there: false
+        })
+        }else{
+          that.setData({
+            there: true
+          })
+        }
 
+      }
+    })
   },
 
   /**

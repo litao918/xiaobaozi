@@ -47,6 +47,7 @@ Page({
   onLoad: function (options) {
     var that = this
     console.log('-------------')
+    var type = app.globalData.language
     wx.request({
       url: 'http://baoziwang.cqlink.club/appi/car/car_list',
       data: {

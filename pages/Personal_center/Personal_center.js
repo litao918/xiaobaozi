@@ -29,7 +29,11 @@ Page({
     },
     selection: false,
     language: '简体中文',
-    languagebao:''
+    languagebao:'',
+    //用户ID
+    userid:1,
+    // 用户信息
+    userinform:''
 
   },
 
@@ -71,14 +75,22 @@ Page({
     }
   },
 
+  //跳转我的优惠券
+  coupon:function(){
+    wx.navigateTo({
+      url: '../coupon/coupon',
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
+
     var language = wx.getStorageSync('language')
     var Chinese = this.data.Chinese
     var English = this.data.English
-
     this.setData({
       language: language
     })
@@ -91,6 +103,27 @@ Page({
         languagebao: Chinese
       })
     }
+    var userid = this.data.userid
+    var that = this
+
+    wx.request({
+      url: 'http://baoziwang.cqlink.club/appi/user/user',
+      data:{
+        id: userid
+      },
+      method:'POST',
+      success:function(res){
+        console.log(res.data.data[0])
+        that.setData({
+          userinform: res.data.data[0]
+        })
+
+      }
+    })
+
+
+
+
   },
 
   /**

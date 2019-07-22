@@ -2,8 +2,8 @@
 
 <view class='gerenxinxi'>
   <view>
-    <view style='font-size:48rpx;color:#000;font-weight:bold;'>萧大大</view>
-    <view style='font-size:24rpx;color:#000;'>{{languagebao.Personalinformation}}</view>
+    <view style='font-size:48rpx;color:#000;font-weight:bold;'>{{userinform.name}}</view>
+    <view style='font-size:24rpx;color:#000;'>{{userinform.count}}</view>
   </view>
 
   <view style='height:120rpx;width:120rpx;'> <image style='height:100%;width:100%;'></image> </view>
@@ -29,7 +29,7 @@
     </view>
 </view>
 
-<view class='wodedingdan'>
+<view class='wodedingdan' bindtap='coupon'>
     <view>{{languagebao.coupons}}</view>
    <view style='display:flex'>
     <view style='padding-right:20rpx;color:#999;'>2张</view>
