@@ -47,7 +47,7 @@
                 <view>
                   <text style='color:#F50B0B;font-size:24rpx;'>£<text style='font-size:30rpx;margin:0;color:#F50B0B;'>3</text>.20</text>
                    <view class='add'>
-                        <view class='Minus'>
+                        <view class='Minus' bindtap='reduce' data-index1='{{bindex}}' data-index2='{{bindex1}}'  style="display:{{value.num==0?'none':'block'}}">
                           <image src='../../img/subtract.png' style='width:100%;height:100%'></image>
                         </view>
                         <view style='font-size:24rpx;line-height: 44rpx;margin:0 10rpx;'>{{value.num}}</view>

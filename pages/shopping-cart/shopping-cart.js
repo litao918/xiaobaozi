@@ -1,5 +1,6 @@
 // pages/shopping-cart/shopping-cart.js
 const app = getApp()
+var call = require("../../utils/api.js")
 Page({
 
   /**
@@ -25,8 +26,8 @@ Page({
       picktext: "Take their",
       takeouttext: "take out"
     },//英文包
-
-    selectpackage:''//当前选中的语言包
+    selectpackage:'',//当前选中的语言包
+    goodslist:[]//商品列表
   },
 
   /**
@@ -63,7 +64,8 @@ Page({
     this.setData({
       selected: app.globalData.language
     })
-    this.selectLanguagePack()
+    this.selectLanguagePack();//语言包
+    this.getproductlist();//获取购物车商品列表
   },
 
   //语言包的选择
@@ -79,6 +81,34 @@ Page({
         selectpackage: data
       })
     }
+  },
+  //获取商品列表 
+  getproductlist(){
+    var url ="appi/car/car_list";
+    var data = {
+      type:this.data.selected,
+      id:1
+    }
+    call.request(url, data, this.getproductlistSuccess, this.getproductlistFail)
+  },
+  // 购物车商品列表请求成功回调函数
+  getproductlistSuccess(res){
+    if (res.code == 1) {
+      this.setData({
+        goodslist: res.data
+      })
+    } else {
+      wx.showToast({
+        title: res.msg,
+        icon: 'none',
+        duration: 1500
+      })
+    }
+    console.log(res);
+  },
+  // 购物车商品列表请求失败回调函数
+  getproductlistFail(){
+
   },
 
   // 跳转订单确认接口

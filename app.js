@@ -36,6 +36,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    language:0//中英文切换状态
+    language:0,//中英文切换状态
+    commodity:""//购物车商品
   }
 })

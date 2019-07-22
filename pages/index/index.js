@@ -78,7 +78,6 @@ Page({
   //商品分类请求成功回调函数
   gettypeSuccess(res){
     console.log(res)
-    console.log()
     if (res.code == 1) {
       this.setData({
         leftText: res.data
@@ -110,6 +109,7 @@ Page({
     var data = {
       type: this.data.selsected
     }
+    
     call.request(url, data, this.getgoodsSuccess, this.getgoodsFail)
   },
 
@@ -138,20 +138,60 @@ Page({
   },
   //商品列表请求失败回调函数
   getgoodsFail(){
-
+    wx.showToast({
+      title: res.msg,
+      icon: 'none',
+      duration: 1500
+    })
   },
   // 增加购买数量
   add(e){
+    var goodlist=this.data.rightData
     console.log(e);
+    var flag=1 //减少商品标识
     var key1 = e.currentTarget.dataset.index2//外层商品列表
     var key2 = e.currentTarget.dataset.index1//里层商品详情
     var data = this.data.rightData;
     data[key1].shop[key2].num += 1;
     this.setData({
        rightData:data
-    })
-    ;
+    });
     console.log(this.data.rightData);
+    this.shoppingRequests(data[key1].shop[key2].id, data[key1].shop[key2].num,flag)
+  }, 
+  //减少购买数量
+  reduce(e){
+    var key1 = e.currentTarget.dataset.index2//外层商品列表
+    var key2 = e.currentTarget.dataset.index1//里层商品详情
+    var data = this.data.rightData;
+    data[key1].shop[key2].num -= 1;
+    this.setData({
+      rightData: data
+    });
+  },
+  //购物车数量增加减少后台请求接口
+  shoppingRequests(id,num,state){
+    var url ="appi/index/sp_cart";
+    var data ={
+      s_id:id,
+      state: state,
+      shu:num,
+      u_id:1
+    }
+    call.request(url, data, this.shoppingSuccess, this.shoppingFail)
+  },
+  //购物车新增商品请求成功回调函数
+  shoppingSuccess(res){
+      wx.showToast({
+        title: res.msg,
+        icon: 'none',
+        duration: 1500
+      })
+
+  },
+  //购物车新增商品请求失败回调函数
+  shoppingFail(){
+
   },
   onPageScroll: function (e) {
     //console.log(e.scrollTop)
