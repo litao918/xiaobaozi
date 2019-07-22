@@ -218,6 +218,7 @@ Page({
     })
     that.setData({
       classfiySelect: classfiySelect,
+
     })
   },
   //求每一栏高度

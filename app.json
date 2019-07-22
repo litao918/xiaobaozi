@@ -3,17 +3,16 @@
     "pages/login/login",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/ceshi/ceshi",
     "pages/My_oder/My_oder",
     "pages/Coupons/Coupons",
     "pages/Personal_center/Personal_center",
     "pages/shopping-cart/shopping-cart",
-    "pages/shopping-cart-null/shopping-cart-null",
     "pages/confirm-order/confirm-order",
     "pages/coupon/coupon",
     "pages/Paysuccess/Paysuccess",
     "pages/successfully/successfully",
-    "pages/orderdetails/orderdetails"
+    "pages/orderdetails/orderdetails",
+    "pages/ceshi/ceshi"
   ],
   "window": {
     "backgroundTextStyle": "light",

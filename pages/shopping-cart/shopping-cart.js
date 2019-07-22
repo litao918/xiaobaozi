@@ -30,11 +30,46 @@ Page({
     goodslist:[]//商品列表
   },
 
+  //点击加一
+  Reduction:function(){
+      
+  },
+
+  //点击减一
+  add: function () {
+
+  },
+
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this
+    console.log('-------------')
+    wx.request({
+      url: 'http://baoziwang.cqlink.club/appi/car/car_list',
+      data: {
+        type: this.data.type,
+        id: this.data.id
+      },
+      method: 'POST',
+      success: function (res) {
+        console.log(res.data.data)
+        if (res.data.data == null){
+          that.setData({
+            shoppingnull:true
+          })
+        }else{
+          that.setData({
+            shoppingnull: false
+          })
+        }
+      }
+    })
   },
+
+
   //立即购买方法
   buy(){
    this.setData({
