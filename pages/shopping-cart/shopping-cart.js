@@ -16,7 +16,7 @@ Page({
       selecttext:"请选择配送方式",
       picktext:"自提",
       takeouttext:"外卖",
-      dollarsign:"¥"
+      dollarsign: "¥"
     },//中文包
 
     english: {
