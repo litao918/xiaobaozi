@@ -18,7 +18,6 @@
 .shopping-item{
   width: 100%;
   height: 169rpx;
-  background-color: red;
   margin-bottom: 50rpx;
   display: flex;
   box-sizing: border-box;
@@ -27,7 +26,6 @@
 .Commodity-figure{
   height: 169rpx;
   width: 169rpx;
-  background-color: yellow
 }
 /*商品描述*/
 .product-description{
@@ -72,7 +70,6 @@
 .increase-deleticon{
   height: 44rpx;
   width: 44rpx;
-  border: 1rpx #999999 solid;
   border-radius:50%;
   font-size: 20rpx;
   text-align: center;
@@ -91,7 +88,6 @@
   height: 44rpx;
   width: 44rpx;
   font-size: 30rpx;
-  background-color: #F6D047;
   border-radius:50%;
   text-align: center;
 }

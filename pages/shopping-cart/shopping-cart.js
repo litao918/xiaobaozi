@@ -15,67 +15,45 @@ Page({
       totaltext:"共计",
       selecttext:"请选择配送方式",
       picktext:"自提",
-      takeouttext:"外卖"
+      takeouttext:"外卖",
+      dollarsign:"¥"
     },//中文包
 
     english: {
-      market: "Sold",
+      market: "Sold ",
       buybutton: "Buy now",
       totaltext: "All",
       selecttext: "Pick up method",
       picktext: "Take their",
-      takeouttext: "take out"
+      takeouttext: "take out",
+      dollarsign: "£"
     },//英文包
     selectpackage:'',//当前选中的语言包
-    goodslist:[]//商品列表
+    goodslist:[],//商品列表
+    shoppingnull:0,//判断购物车是否为空的变量
+    allmoney:0//总金额
   },
-
-  //点击加一
-  Reduction:function(){
-      
-  },
-
-  //点击减一
-  add: function () {
-
-  },
-
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this
-    console.log('-------------')
-    var type = app.globalData.language
-    wx.request({
-      url: 'http://baoziwang.cqlink.club/appi/car/car_list',
-      data: {
-        type: this.data.type,
-        id: this.data.id
-      },
-      method: 'POST',
-      success: function (res) {
-        console.log(res.data.data)
-        if (res.data.data == null){
-          that.setData({
-            shoppingnull:true
-          })
-        }else{
-          that.setData({
-            shoppingnull: false
-          })
-        }
-      }
-    })
   },
 
 
   //立即购买方法
   buy(){
-   this.setData({
-     identification:1
-   })
+    if(this.data.allmoney==0){
+      wx.showToast({
+        title: "购物车没有东西",
+        icon: 'none',
+        duration: 1500
+      })
+    }else{
+      this.setData({
+        identification: 1
+      })
+    }
   },
 
   // 点击取消选择配送方式
@@ -102,6 +80,7 @@ Page({
     })
     this.selectLanguagePack();//语言包
     this.getproductlist();//获取购物车商品列表
+    this.getallmoney();//获得商品总金额
   },
 
   //语言包的选择
@@ -130,9 +109,20 @@ Page({
   // 购物车商品列表请求成功回调函数
   getproductlistSuccess(res){
     if (res.code == 1) {
-      this.setData({
-        goodslist: res.data
-      })
+      if(res.data.length>0){
+        console.log(res.data)
+          this.setData({
+            goodslist: res.data
+          })
+        console.log(this.data.goodslist)
+          this.setData({
+            shoppingnull: 1
+          });
+      }else{
+        this.setData({
+          shoppingnull: 0
+        });
+      }
     } else {
       wx.showToast({
         title: res.msg,
@@ -146,11 +136,95 @@ Page({
   getproductlistFail(){
 
   },
+  // 删减商品
+  deleteGoods(e){
+    var key = e.currentTarget.dataset.index//里层商品数组下标
+    var data = this.data.goodslist;
+    var flag=2;
+    data[key].geshu -= 1;
+    this.setData({
+      goodslist: data
+    });
+    this.shoppingRequests(data[key].id, data[key].geshu, flag)
+  },
+  // 增加商品
+  addGoods(e) {
+    var key = e.currentTarget.dataset.index//里层商品数组下标
+    var data = this.data.goodslist;
+    var flag = 1;
+    data[key].geshu += 1;
+    this.setData({
+      goodslist: data
+    });
+    this.shoppingRequests(data[key].id, data[key].geshu, flag)
+  },
 
+  //购物车数量增加减少后台请求接口
+  shoppingRequests(id, num, state) {
+    var url = "appi/index/sp_cart";
+    var data = {
+      s_id: id,
+      state: state,
+      shu: num,
+      u_id: 1
+    }
+    call.request(url,data, this.shoppingSuccess, this.shoppingFail)
+  },
+  //购物车新增商品请求成功回调函数
+  shoppingSuccess(res) {
+
+    if(res.code==1){
+      this.getallmoney();
+      wx.showToast({
+        title: res.msg,
+        icon: 'none',
+        duration: 1500
+      })
+    }else{
+      wx.showToast({
+        title: res.msg,
+        icon: 'none',
+        duration: 1500
+      })
+    }
+
+
+  },
+  //购物车新增商品请求失败回调函数
+  shoppingFail() {
+
+  },
+  //得到总金额
+  getallmoney(){
+    var url ="appi/car/car_money"
+    var data ={
+      type:this.data.selected,
+      id:1
+    }
+    call.request(url, data, this.getallmoneySuccess, this.getallmoneyFail)
+  },
+  //获取总金额请求成功回调 
+  getallmoneySuccess(res){
+    console.log(res)
+    if(res.code==1){
+      this.setData({
+        allmoney: res.data.zong_ying_money
+      })
+    }else if(res.code==2){
+      this.setData({
+        allmoney: 0
+      })
+    }
+  },
+  //获取总金额请求失败回调 
+  getallmoneyFail() {
+
+  },
   // 跳转订单确认接口
   toconfirmorder(){
+    console.log(this.data.goodslist);
     wx.navigateTo({
-      url: '../confirm-order/confirm-order',
+      url: '../confirm-order/confirm-order?purchased='+this.data.goodslist,
     })
   },
   /**

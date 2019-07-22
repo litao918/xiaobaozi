@@ -13,122 +13,23 @@
 <view style="display:{{shoppingnull? 'block' : 'none'}};">
 <view class='content'>
   <view class='shopping-list'>
-    <view class='shopping-item'>
-      <view class='Commodity-figure'></view>
+    <view class='shopping-item' wx:for="{{goodslist}}" wx:for-list="item" wx:for-index="index">
+      <view class='Commodity-figure'><image style='width:168rpx;height:168rpx;' src='{{item.imager[0]}}'></image></view>
       <view class='product-description'>
-        <view class='description-item1'><text style='font-size:30rpx;font-weight:bold;color:rgba(51,51,51,1);'>小笼包</text></view>
-        <view class='description-item2'><text style='font-size:24rpx;font-family:PingFang-SC-Bold;font-weight:bold;color:rgba(153,153,153,1);'>{{selectpackage.market}}26</text></view>
+        <view class='description-item1'><text style='font-size:30rpx;font-weight:bold;color:rgba(51,51,51,1);'>{{selected?item.zhong_name :item.ying_name}}</text></view>
+        <view class='description-item2'><text style='font-size:24rpx;font-family:PingFang-SC-Bold;font-weight:bold;color:rgba(153,153,153,1);'>{{selectpackage.market+item.yishou}}</text></view>
         <view class='description-item3'>
-          <text style='font-size:24rpx;font-weight:bold;line-height:47rpx;color:#F50B0B;'><text style='font-size:24rpx;font-weight:bold;color:#F50B0B;'>£</text><text style='font-size:36rpx;font-weight:bold;color:#F50B0B;'>3</text>.20</text>
-          <view class='increase'>
-            <view class='increase-deleticon' bindtap='Reduction'>—</view>
-            <view class='increase-num'>1</view>
-            <view class='increase-addicon' bindtap='add'>+</view>
-          </view>
+        <view style="display:{{selected?'none':'block'}}">
+          <text style='font-size:24rpx;font-weight:bold;line-height:47rpx'>£{{item.ying_money}}</text>
         </view>
-      </view>
-    </view>
-    <view class='shopping-item'>
-      <view class='Commodity-figure'></view>
-      <view class='product-description'>
-        <view class='description-item1'><text style='font-size:30rpx;font-weight:bold;color:rgba(51,51,51,1);'>小笼包</text></view>
-        <view class='description-item2'><text style='font-size:24rpx;font-family:PingFang-SC-Bold;font-weight:bold;color:rgba(153,153,153,1);'>已售26</text></view>
-        <view class='description-item3'>
-          <text style='font-size:24rpx;font-weight:bold;line-height:47rpx'>£3.20</text>
-          <view class='increase'>
-            <view class='increase-deleticon'>—</view>
-            <view class='increase-num'>1</view>
-            <view class='increase-addicon'>+</view>
-          </view>
+        <view style="display:{{selected?'block':'none'}}">
+          <text style='font-size:24rpx;font-weight:bold;line-height:47rpx' >¥{{item.zhong_money}}</text>
         </view>
-      </view>
-    </view>
-    <view class='shopping-item'>
-      <view class='Commodity-figure'></view>
-      <view class='product-description'>
-        <view class='description-item1'><text style='font-size:30rpx;font-weight:bold;color:rgba(51,51,51,1);'>小笼包</text></view>
-        <view class='description-item2'><text style='font-size:24rpx;font-family:PingFang-SC-Bold;font-weight:bold;color:rgba(153,153,153,1);'>已售26</text></view>
-        <view class='description-item3'>
-          <text style='font-size:24rpx;font-weight:bold;line-height:47rpx'>£3.20</text>
+          
           <view class='increase'>
-            <view class='increase-deleticon'>—</view>
-            <view class='increase-num'>1</view>
-            <view class='increase-addicon'>+</view>
-          </view>
-        </view>
-      </view>
-    </view>
-    <view class='shopping-item'>
-      <view class='Commodity-figure'></view>
-      <view class='product-description'>
-        <view class='description-item1'><text style='font-size:30rpx;font-weight:bold;color:rgba(51,51,51,1);'>小笼包</text></view>
-        <view class='description-item2'><text style='font-size:24rpx;font-family:PingFang-SC-Bold;font-weight:bold;color:rgba(153,153,153,1);'>已售26</text></view>
-        <view class='description-item3'>
-          <text style='font-size:24rpx;font-weight:bold;line-height:47rpx'>£3.20</text>
-          <view class='increase'>
-            <view class='increase-deleticon'>—</view>
-            <view class='increase-num'>1</view>
-            <view class='increase-addicon'>+</view>
-          </view>
-        </view>
-      </view>
-    </view>
-    <view class='shopping-item'>
-      <view class='Commodity-figure'></view>
-      <view class='product-description'>
-        <view class='description-item1'><text style='font-size:30rpx;font-weight:bold;color:rgba(51,51,51,1);'>小笼包</text></view>
-        <view class='description-item2'><text style='font-size:24rpx;font-family:PingFang-SC-Bold;font-weight:bold;color:rgba(153,153,153,1);'>已售26</text></view>
-        <view class='description-item3'>
-          <text style='font-size:24rpx;font-weight:bold;line-height:47rpx'>£3.20</text>
-          <view class='increase'>
-            <view class='increase-deleticon'>—</view>
-            <view class='increase-num'>1</view>
-            <view class='increase-addicon'>+</view>
-          </view>
-        </view>
-      </view>
-    </view>
-    <view class='shopping-item'>
-      <view class='Commodity-figure'></view>
-      <view class='product-description'>
-        <view class='description-item1'><text style='font-size:30rpx;font-weight:bold;color:rgba(51,51,51,1);'>小笼包</text></view>
-        <view class='description-item2'><text style='font-size:24rpx;font-family:PingFang-SC-Bold;font-weight:bold;color:rgba(153,153,153,1);'>已售26</text></view>
-        <view class='description-item3'>
-          <text style='font-size:24rpx;font-weight:bold;line-height:47rpx'>£3.20</text>
-          <view class='increase'>
-            <view class='increase-deleticon'>—</view>
-            <view class='increase-num'>1</view>
-            <view class='increase-addicon'>+</view>
-          </view>
-        </view>
-      </view>
-    </view>
-    <view class='shopping-item'>
-      <view class='Commodity-figure'></view>
-      <view class='product-description'>
-        <view class='description-item1'><text style='font-size:30rpx;font-weight:bold;color:rgba(51,51,51,1);'>小笼包</text></view>
-        <view class='description-item2'><text style='font-size:24rpx;font-family:PingFang-SC-Bold;font-weight:bold;color:rgba(153,153,153,1);'>已售26</text></view>
-        <view class='description-item3'>
-          <text style='font-size:24rpx;font-weight:bold;line-height:47rpx'>£3.20</text>
-          <view class='increase'>
-            <view class='increase-deleticon'>—</view>
-            <view class='increase-num'>1</view>
-            <view class='increase-addicon'>+</view>
-          </view>
-        </view>
-      </view>
-    </view>
-    <view class='shopping-item'>
-      <view class='Commodity-figure'></view>
-      <view class='product-description'>
-        <view class='description-item1'><text style='font-size:30rpx;font-weight:bold;color:rgba(51,51,51,1);'>小笼包</text></view>
-        <view class='description-item2'><text style='font-size:24rpx;font-family:PingFang-SC-Bold;font-weight:bold;color:rgba(153,153,153,1);'>已售26</text></view>
-        <view class='description-item3'>
-          <text style='font-size:24rpx;font-weight:bold;line-height:47rpx'>£3.20</text>
-          <view class='increase'>
-            <view class='increase-deleticon'>—</view>
-            <view class='increase-num'>1</view>
-            <view class='increase-addicon'>+</view>
+            <view class='increase-deleticon' style="display:{{item.geshu==0?'none':'block'}}" data-id='{{item.id}}' data-index='{{index}}' bindtap='deleteGoods'><image style='width:44rpx;height:44rpx;' src='../../img/subtract.png'></image></view>
+            <view class='increase-num'>{{item.geshu}}</view>
+            <view class='increase-addicon' bindtap='addGoods' data-index='{{index}}' data-id='{{item.id}}'><image style='width:44rpx;height:44rpx;'  src='../../img/add.png'></image></view>
           </view>
         </view>
       </view>
@@ -136,7 +37,7 @@
   </view>
 </view>
 <view class='submit-navigation'>
-  <view class='navigation-price'>{{selectpackage.totaltext}}<text style='font-size:36rpx;font-weight:bold;margin-left:10rpx;color:#F50B0B'><text style='font-size:24rpx;font-weight:bold;'>£</text>3.20</text></view>
+  <view class='navigation-price'>{{selectpackage.totaltext}}<text style='font-size:36rpx;font-weight:bold;margin-left:10rpx;color:#F50B0B'><text style='font-size:24rpx;font-weight:bold;'>{{selectpackage.dollarsign}}</text>{{allmoney}}</text></view>
   <view class='navigation-submit' bindtap='buy'>{{selectpackage.buybutton}}</view>
 </view>
 <view class='Dialog' bindtap='chanel' style="{{identification?'display:block':'display:none'}}">
