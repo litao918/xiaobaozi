@@ -12,58 +12,35 @@
 <view>
   
 <view style='background:#f5f5f5;width:100%;height:100%;'>
-
-  <view style='padding:30rpx;background:#fff;margin-top:30rpx;' >
+  <view style='padding:30rpx;background:#fff;margin-top:30rpx;'  wx:for="{{orderlist}}" wx:for-list="item">
           <view class='dingdan'>
-              <view style='font-size:24rpx;color:#999;padding-bottom:30rpx;'>{{selectpackage.ordertime}}<text style='color:#333333'>2019-07-04  08:06</text> </view>
+               <view style='font-size:24rpx;color:#999;padding-bottom:30rpx;'>{{selectpackage.ordertime}}<text style='color:#333333'>{{item.addtime}}</text> </view>
               <view style='color:#F10A0A;font-size:28rpx;font-weight:bold;'>{{selectpackage.category2}}</view>
           </view>
 
           <view style='border-radius: 10rpx;padding:30rpx; background: #f5f5f5;margin-bottom:27rpx;'>
-            <view class='dingdan' style='padding:20rpx 0;' >
-              <view>小笼包</view>
-              <view>x1</view>
-          </view> 
-
-            <view class='dingdan' style='padding:20rpx 0;' >
-              <view>小笼包</view>
-              <view>x1</view>
-          </view> 
-
-            <view class='dingdan' style='padding:20rpx 0;' >
-              <view>小笼包</view>
-              <view>x1</view>
-          </view> 
-
-        
+            <view class='dingdan' style='padding:20rpx 0;'  wx:for="{{item.sp_shuliang}}" wx:for-list="item">
+              <view>{{item.sp_name}}</view>
+              <view>X{{item.shuliang}}</view>
+            </view> 
 
           </view>
 
           <view class='zailaiyidan'>
               <view></view>
-              <view>
-                <view style="font-size:24rpx;padding-left:76rpx;display:{{selected?'block':'none'}}">共计 <text style='color:#F10A0A'>4</text>件，总价<text style='color:#F10A0A'>¥12.80</text> </view>
+              <view style='width:480rpx'>
+                <view style="font-size:24rpx;display:{{selected?'block':'none'}};text-align:right">共计 <text style='color:#F10A0A'>{{item.sp_zongshu}}</text>件，总价<text style='color:#F10A0A'>¥{{item.sj_zhong_money}}</text> </view>
 
-                <view  style="font-size:24rpx;padding-left:76rpx;display:{{selected?'none':'block'}}"><text style='color:#F10A0A'>4</text>  pieces of goods, a total of <text style='color:#F10A0A'>£25</text></view>
-
-                  <view class='btn'>{{selectpackage.anotherlist}}</view>
+                <view  style="font-size:24rpx;display:{{selected?'none':'block'}};text-align:right"><text style='color:#F10A0A'>4</text>  pieces of goods, a total of <text style='color:#F10A0A'>£{{item.sj_ying_money}}</text></view>
+                  <view style='width:100%;display:flex;justify-content:flex-end'><view class='btn'>{{selectpackage.anotherlist}}</view></view>
               </view>
           </view>
     </view>
-
-    
-
-
-
-
-
-
   </view>
 </view>
 
 
 </view>
-
 <view class='meiyoudingdan' style="display:{{orderflag?'none':'block'}}">
     <view class='img2'>
       <image src='../../img/zanwudingdan.png' style='height:90%;width:130%;'></image>

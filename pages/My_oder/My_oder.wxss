@@ -51,7 +51,6 @@ page{
   font-size: 24rpx;
   font-weight: bold;
   margin: 30rpx 0;
-  margin-left: 118rpx;
   
 }
 

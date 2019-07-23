@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tabrid:0,
+    tabrid:1,
     // 语言类型ID
     selected:"",//语言包变量
     orderlist:[],//订单列表
@@ -39,6 +39,7 @@ Page({
     this.setData({
       tabrid: id
     })
+    this.getorder()//获取订单
   },
 
   /**
@@ -82,10 +83,11 @@ Page({
   },
   //获得订单
   getorder(){
-    var url ="appi/user/user_order_list";
+    var url ="appi/user/user_order_list_shaixuan";
     var data={
       type:this.data.selected,
-      id:1
+      id:1,
+      state:this.data.tabrid
     }
     call.request(url, data, this.getorderSuccess, this.getorderFail)
   },
