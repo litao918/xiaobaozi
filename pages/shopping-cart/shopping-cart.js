@@ -216,9 +216,13 @@ Page({
   },
   // 跳转订单确认接口
   toconfirmorder(){
-    console.log(this.data.goodslist);
+    var shoppingcart = this.data.goodslist
+    var allmoney = this.data.allmoney
+    console.log('***************')
+    console.log(shoppingcart)
+    console.log('***************')
     wx.navigateTo({
-      url: '../confirm-order/confirm-order',
+      url: '../confirm-order/confirm-order?allmoney=' + allmoney,
     })
   },
   /**

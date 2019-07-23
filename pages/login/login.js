@@ -40,27 +40,24 @@ Page({
       var avatarUrl = userInfo.avatarUrl
       var nickName = userInfo.nickName
       wx.setStorageSync('userInfo', userInfo)
-      // wx.request({
-      //   url: 'https://cqweh.vrccn.com/index/index/smallAuth',
-      //   data: {
-      //     code: code,
-      //     nickName: nickName,
-      //     avatarUrl: avatarUrl
-      //   },
-      //   method: 'POST',
-      //   success: function (res) {
-      //     console.log(res)
-      //     var openid = res.data.data.openid
-      //     console.log(openid)
-      //     wx.setStorageSync('openid', openid)
-      //   }
-      // })
+      wx.request({
+        url: 'http://baoziwang.cqlink.club/login/login',
+        data: {
+          code: code,
+          name: nickName,
+          imager: avatarUrl
+        },
+        method: 'POST',
+        success: function (res) {
+          console.log(res)
 
-      //授权成功后，跳转进入小程序首页
-      wx.switchTab({
-        url: '/pages/index/index'
+
+          //授权成功后，跳转进入小程序首页
+          wx.switchTab({
+            url: '/pages/index/index'
+          })
+        }
       })
-
     } else {
       //用户按了拒绝按钮
       wx.showModal({

@@ -15,6 +15,8 @@ App({
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        wx.setStorageSync('code', res.code)
+        
       }
     })
     // 获取用户信息
@@ -40,7 +42,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    language:0,//中英文切换状态
+    language:1,//中英文切换状态
     commodity:""//购物车商品
   }
 })
