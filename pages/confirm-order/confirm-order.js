@@ -43,7 +43,17 @@ Page({
     //自提地址
     address:'',
     //用户id
-    userid:1
+    userid:1,
+    //购物车商品id数组
+    goods:[],
+    //购物车商品数组
+    goodslist:'',
+    //总价
+    allmoney:'',
+    //商品总数
+    goodsnum:'',
+    //商品提交数组
+    goodsarry:[]
 
   },
 
@@ -58,6 +68,11 @@ Page({
     var tihuotime = this.data.address
     //用户ID
     var u_id = this.data.userid
+    //商品数组
+    var goodsarry = this.data.goodsarry
+    //商品总数
+    var goodsnum = this.data.goodsnum
+
   },
 
 
@@ -65,7 +80,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+
+    var allmoney = options.allmoney
+    this.setData({
+      allmoney: allmoney
+    })
+
     var type = app.globalData.language
     var that= this
     // 自提地址
@@ -82,6 +102,7 @@ Page({
         })
       }
     })
+
   },
 
   /**
@@ -134,16 +155,44 @@ Page({
   },
   // 购物车商品列表请求成功回调函数
   getproductlistSuccess(res) {
+    var type = app.globalData.language
+    var u_id = this.data.userid
     if (res.code == 1) {
-        console.log(res.data)
-        this.setData({
-          goodslist: res.data
-        })
-      wx.showToast({
-        title: res.msg,
-        icon: 'none',
-        duration: 1500
+      var goodsarr = res.data
+      var  goods = []
+      var goodsnum = 0
+      var goodsarry = [];
+      for (let i in goodsarr) {
+        goods.push(goodsarr[i].s_id)
+        var num = parseInt(goodsarr[i].geshu)
+        goodsnum = goodsnum + num
+        goodsarry[i] = new Object
+        goodsarry[i].sp_id = goodsarr[i].s_id
+        goodsarry[i].sp_shuliang = goodsarr[i].geshu
+        goodsarry[i].jiage = goodsarr[i].money
+      } 
+      console.log('-----------------------------------')
+      console.log(goodsarry)
+      console.log('-----------------------------------')
+      this.setData({
+          goodslist: res.data, 
+          goodsnum: goodsnum,  
+          goodsarry: goodsarry
       })
+      // 请求优惠券
+      wx.request({
+        url: 'http://baoziwang.cqlink.club/appi/order/shop_yhj',
+        data:{
+          s_id: goods,
+          type:type,
+          u_id: u_id
+        },
+        method:'POST',
+        success:function(res){
+          console.log(res)
+        }
+      })
+     
     } else {
       wx.showToast({
         title: res.msg,

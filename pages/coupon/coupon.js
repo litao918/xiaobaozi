@@ -23,7 +23,7 @@ Page({
 
     selectpackage: '',//当前选中的语言包
     userid:1,//用户id
-    there:true,//是否有优惠券
+    there:false,//是否有优惠券
   },
 
   /**
