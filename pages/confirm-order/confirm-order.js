@@ -21,6 +21,8 @@ Page({
         totalprice:'总价',
         immediatePayment:'线上支付',
         tostorepayment: '到店支付',
+        chancel:"取消",
+        comfirm:"确定"
     },
     english: {
       pickupaddress: 'Pick up address',
@@ -35,6 +37,8 @@ Page({
       totalprice: 'total prices',
       immediatePayment: 'immediate Payment',
       tostorepayment: 'To store payment',
+      chancel: "Chancel",
+      comfirm: "Comfirm"
     },
     //语言选中状态
     selected:"",

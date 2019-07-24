@@ -69,11 +69,11 @@
 </view>
 <view class='Dialog-content' style="{{identification?'display:block':'display:none'}}">
   <view class='phone'>
-    <view class='phonelabel'>联系电话</view>
+    <view class='phonelabel'>{{languagepack.phonenumber}}</view>
     <input class='phoneinput' bindblur='setphone'></input>
   </view>
   <view class='button'>
-    <button class='chanel' bindtap='chanel'>取消</button>
-    <button class='confirm' bindtap='confirm' >确定</button>
+    <button class='chanel' bindtap='chanel'>{{languagepack.chancel}}</button>
+    <button class='confirm' bindtap='confirm' >{{languagepack.comfirm}}</button>
   </view>
 </view>
