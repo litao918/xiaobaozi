@@ -61,7 +61,12 @@ Page({
     // 电话规则变量
     phonerule:1,
     // 电话中间变量
-    phonecopy:""
+    phonecopy:"",
+    //应付价格
+    souldprice:"",
+    //提货地址ID
+    addressid:''
+
   },
 
   // 支付提交
@@ -90,7 +95,8 @@ Page({
 
     var allmoney = options.allmoney
     this.setData({
-      allmoney: allmoney
+      allmoney: allmoney,
+      souldprice: allmoney
     })
 
     var type = app.globalData.language
@@ -105,7 +111,8 @@ Page({
       success: function (res) {
         console.log(res.data.msg)
         that.setData({
-          address: res.data.msg
+          address: res.data.data[0].dizhi,
+          addressid: res.data.data[0].id
         })
       }
     })
@@ -149,7 +156,7 @@ Page({
   //跳转优惠券页面
   tocoupon(){
     wx.navigateTo({
-      url: '../coupon/coupon',
+      url: '../coupon/coupon?id=1'
     })
   },
 

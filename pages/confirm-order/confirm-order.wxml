@@ -53,11 +53,11 @@
     </view>
     <view class='Preferential-item'>
       <view style='font-size:24rpx;font-weight:bold;color:rgba(153,153,153,1);line-height:90rpx;'>{{languagepack.preferential}}</view>
-      <view style='font-size:24rpx;font-weight:bold;color:rgba(245,11,11,1);line-height:90rpx;'>£0</view>
+      <view style='font-size:24rpx;font-weight:bold;color:rgba(245,11,11,1);line-height:90rpx;'>¥0</view>
     </view>
     <view class='Preferential-item'>
       <view style='font-size:24rpx;font-weight:bold;color:rgba(153,153,153,1);line-height:90rpx;'>{{languagepack.copewith}}</view>
-      <view style='font-size:24rpx;font-weight:bold;color:rgba(245,11,11,1);line-height:90rpx;'>£15.40</view>
+      <view style='font-size:24rpx;font-weight:bold;color:rgba(245,11,11,1);line-height:90rpx;'>¥{{souldprice}}</view>
     </view>
   </view>
   <view class='Payment-button'>
