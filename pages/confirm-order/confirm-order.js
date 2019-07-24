@@ -53,7 +53,11 @@ Page({
     //商品总数
     goodsnum:'',
     //商品提交数组
-    goodsarry:[]
+    goodsarry:[],
+    //应付价格
+    souldprice:"",
+    //提货地址ID
+    addressid:''
 
   },
 
@@ -83,7 +87,8 @@ Page({
 
     var allmoney = options.allmoney
     this.setData({
-      allmoney: allmoney
+      allmoney: allmoney,
+      souldprice: allmoney
     })
 
     var type = app.globalData.language
@@ -98,7 +103,8 @@ Page({
       success: function (res) {
         console.log(res.data.msg)
         that.setData({
-          address: res.data.msg
+          address: res.data.data[0].dizhi,
+          addressid: res.data.data[0].id
         })
       }
     })
@@ -140,7 +146,7 @@ Page({
   //跳转优惠券页面
   tocoupon(){
     wx.navigateTo({
-      url: '../coupon/coupon',
+      url: '../coupon/coupon?id=1'
     })
   },
 
