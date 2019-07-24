@@ -76,7 +76,8 @@ Page({
   onShow: function () {
     console.log(app.globalData.language)
     this.setData({
-      selected: app.globalData.language
+      selected: app.globalData.language,
+      identification:0
     })
     this.selectLanguagePack();//语言包
     this.getproductlist();//获取购物车商品列表
@@ -224,6 +225,10 @@ Page({
     wx.navigateTo({
       url: '../confirm-order/confirm-order?allmoney=' + allmoney,
     })
+  },
+  //弹窗背景不可滚动
+  filterViewMove(){
+
   },
   /**
    * 生命周期函数--监听页面隐藏

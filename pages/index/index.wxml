@@ -1,4 +1,4 @@
--<!--index.wxml-->
+<!--index.wxml-->
 
 <!-- 轮播 -->
 <swiper style='height:300rpx;padding:20rpx 30rpx;'  autoplay='true'  circular='true'>

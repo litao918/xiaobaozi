@@ -40,7 +40,7 @@
   <view class='navigation-price'>{{selectpackage.totaltext}}<text style='font-size:36rpx;font-weight:bold;margin-left:10rpx;color:#F50B0B'><text style='font-size:24rpx;font-weight:bold;'>{{selectpackage.dollarsign}}</text>{{allmoney}}</text></view>
   <view class='navigation-submit' bindtap='buy'>{{selectpackage.buybutton}}</view>
 </view>
-<view class='Dialog' bindtap='chanel' style="{{identification?'display:block':'display:none'}}">
+<view class='Dialog' bindtap='chanel' catchtouchmove="filterViewMove" style="{{identification?'display:block':'display:none'}}">
 </view>
 <view class='Dialog-content' style="{{identification?'display:block':'display:none'}}">
   <view class='distribution'>{{selectpackage.selecttext}}</view>

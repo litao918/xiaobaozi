@@ -53,8 +53,15 @@ Page({
     //商品总数
     goodsnum:'',
     //商品提交数组
-    goodsarry:[]
-
+    goodsarry:[],
+    // 电话弹窗控制变量
+    identification:0,
+    // 联系电话变量
+    phone:"",
+    // 电话规则变量
+    phonerule:1,
+    // 电话中间变量
+    phonecopy:""
   },
 
   // 支付提交
@@ -127,12 +134,14 @@ Page({
     if (this.data.selected == 0) {
       var data = this.data.english
       this.setData({
-        languagepack: data
+        languagepack: data,
+        phone:"Request Filling"
       })
     } else if (this.data.selected == 1) {
       var data = this.data.chinese
       this.setData({
-        languagepack: data
+        languagepack: data,
+        phone: "请填写"
       })
     }
   },
@@ -205,7 +214,67 @@ Page({
   getproductlistFail() {
 
   },
+  // 填写电话弹窗调用
+  getphone(){
+    this.setData({
+      identification:1
+    })
+  },
+  // 单击弹窗模板背景影藏弹窗
+  chanel(){
+    if(this.data.selected){
+      this.setData({
+        identification: 0,
+      })
+    }else{
+      this.setData({
+        identification: 0,
+      })
+    }
 
+
+
+  },
+  // 启用弹窗后模板背景不可滑动
+  filterViewMove(){
+
+  },
+  // 设置电话号码
+  setphone(e){
+    var data = e.detail.value
+    if ((/^1[3456789]\d{9}$/.test(data))){
+      this.setData({
+        phonecopy: e.detail.value,
+        phonerule:1
+      })
+    }else{
+      this.setData({
+        phonecopy: e.detail.value,
+        phonerule: 0
+      })
+    }
+  },
+  // 弹窗确定按钮
+  confirm(){
+    if(this.data.phonecopy==""){
+      wx.showToast({
+        title: "电话不能为空",
+        icon: 'none',
+        duration: 1500
+      })
+    } else if (this.data.phonerule){
+      this.setData({
+        phone:this.data.phonecopy,
+        identification:0
+      })
+    }else{
+      wx.showToast({
+        title: "电话格式有误",
+        icon: 'none',
+        duration: 1500
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */

@@ -13,7 +13,7 @@
       </view>
       <view class='pickup-phoen'>
         <view style='font-size:24rpx;font-weight:bold;color:rgba(153,153,153,1);margin-bottom:15rpx'>{{languagepack.phonenumber}}</view>
-          <view style='font-size:24rpx;font-weight:bold;color:rgba(51,51,51,1);'>18323398512<text style='margin-left:35rpx'>></text></view>
+          <view style='font-size:24rpx;font-weight:bold;color:rgba(51,51,51,1);' bindtap='getphone'>{{phone}}<text style='margin-left:35rpx'>></text></view>
       </view>
     </view>
   </view>
@@ -63,5 +63,17 @@
   <view class='Payment-button'>
     <view class='button1' data-id='1' bindtap='since_payment'>{{languagepack.immediatePayment}}</view>
     <view class='button2' data-id='2' bindtap='since_payment'>{{languagepack.tostorepayment}}</view>
+  </view>
+</view>
+<view class='Dialog' bindtap='chanel' catchtouchmove="filterViewMove" style="{{identification?'display:block':'display:none'}}">
+</view>
+<view class='Dialog-content' style="{{identification?'display:block':'display:none'}}">
+  <view class='phone'>
+    <view class='phonelabel'>联系电话</view>
+    <input class='phoneinput' bindblur='setphone'></input>
+  </view>
+  <view class='button'>
+    <button class='chanel' bindtap='chanel'>取消</button>
+    <button class='confirm' bindtap='confirm' >确定</button>
   </view>
 </view>
