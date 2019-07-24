@@ -16,17 +16,17 @@ Page({
       selecttext:"请选择配送方式",
       picktext:"自提",
       takeouttext:"外卖",
-      dollarsign: "¥"
+      dollarsign: "¥",
     },//中文包
 
     english: {
       market: "Sold ",
-      buybutton: "Buy now",
+      buybutton: "Buy Now",
       totaltext: "All",
       selecttext: "Pick up method",
-      picktext: "Take their",
-      takeouttext: "take out",
-      dollarsign: "£"
+      picktext: "Take Their",
+      takeouttext: "Take Out",
+      dollarsign: "£",
     },//英文包
     selectpackage:'',//当前选中的语言包
     goodslist:[],//商品列表

@@ -1,7 +1,7 @@
 // pages/orderdetails/orderdetails.js
 const app = getApp()
+var call = require("../../utils/api.js")
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -20,6 +20,7 @@ Page({
       orderprice: '订单价格',
       Preferentialprice: '优惠价格',
       Actuallyprice: '实付价格',
+      dollarsign: "¥",
     },
     English: {
       showcode: 'Please show your pick-up code to  the merchant',
@@ -35,15 +36,23 @@ Page({
       orderprice: 'account payable',
       Preferentialprice: 'preferential',
       Actuallyprice: 'total prices',
+      dollarsign: "£",
     },
-    selectpackage: ''//当前选中的语言包
+    selectpackage: '',//当前选中的语言包
+    selected:"",
+    orderid:"",//订单id
+    orderlist:[],//订单详情列表
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    console.log(options);
+    this.setData({
+      orderid:options.orderid
+    })
+    // this.getorderdetail();//获取订单详情
   },
 
   /**
@@ -57,8 +66,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    const language = app.globalData.language
-    if (language == 1) {
+    this.setData({
+        selected: app.globalData.language
+    })
+    if (this.data.selected == 1) {
       this.setData({
         selectpackage: this.data.Chinese
       })
@@ -67,8 +78,46 @@ Page({
         selectpackage: this.data.English
       })
     }
+    this.getorderdetail();//获取订单详情
   },
+  // 获取订单详情
+  getorderdetail(){
+    var url ="appi/user/user_order_xiangqing"
+    var data ={
+      type:this.data.selected,
+      id:this.data.orderid
+    }
+    call.request(url, data, this.getorderdetailSuccess, this.getorderdetailFail)
+  },
+  //获取订单详情请求成功回调
+  getorderdetailSuccess(res){
+    console.log(res);
+    if(res.code==1){
+      this.setData({
+        orderlist:res.data
+      })
+      wx.showToast({
+        title: "订单查询成功",
+        icon: 'success',
+        duration: 1500
+      })
+    }else{
+      wx.showToast({
+        title: res.msg,
+        icon: 'none',
+        duration: 1500
+      })
+    }
 
+  },
+   //获取订单详情请求失败回调
+  getorderdetailFail(){
+    wx.showToast({
+      title: "服务器异常",
+      icon: 'none',
+      duration: 1500
+    })
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */

@@ -19,6 +19,8 @@ Page({
       category4: "未取货",
       ordertime: "下单时间:",
       anotherlist: "再来一单",
+      payment: "支付",
+      orderdetail: "订单详情",
     },//中文包
 
     english: {
@@ -28,6 +30,8 @@ Page({
       category4: "NOT Take Stock",
       ordertime: "order time:  ",
       anotherlist: "Another list",
+      payment: "Pay",
+      orderdetail: "OrderDetail"
     },//英文包
 
     selectpackage: ''//当前选中的语言包
@@ -108,6 +112,14 @@ Page({
   // 获得订单请求失败回调
   getorderFail() {
 
+  },
+  //跳转订单详情页面
+  toorderdetail(e){
+    console.log(e);
+    var orderid = e.currentTarget.dataset.id;
+    wx:wx.navigateTo({
+      url: '../orderdetails/orderdetails?orderid='+orderid,
+    })
   },
   /**
    * 生命周期函数--监听页面隐藏

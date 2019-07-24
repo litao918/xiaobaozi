@@ -5,7 +5,7 @@
   <view bindtap='xuanxiangka' data-id='1' class="{{ tabrid == 1 ? 'acctive' : '' }}">{{selectpackage.category1}}<view style="background:#FFD02B;height:4rpx;width:100%;margin-top:6rpx;display:{{ tabrid == 1 ? 'block' : 'none' }}"></view></view>
   <view bindtap='xuanxiangka' data-id='2' class="{{ tabrid == 2 ? 'acctive' : '' }}">{{selectpackage.category2}}<view style="background:#FFD02B;height:4rpx;width:100%;margin-top:6rpx;display:{{ tabrid == 2 ? 'block' : 'none' }}"></view></view>
   <view bindtap='xuanxiangka' data-id='3' class="{{ tabrid == 3 ? 'acctive' : '' }}">{{selectpackage.category3}}<view style="background:#FFD02B;height:4rpx;width:100%;margin-top:6rpx;display:{{ tabrid == 3 ? 'block' : 'none' }}"></view></view>
-  <view bindtap='xuanxiangka' data-id='4' class="{{ tabrid == 4 ? 'acctive' : '' }}">{{selectpackage.category1}}<view style="background:#FFD02B;height:4rpx;width:100%;margin-top:6rpx;display:{{ tabrid == 4 ? 'block' : 'none' }}"></view></view>
+  <view bindtap='xuanxiangka' data-id='4' class="{{ tabrid == 4 ? 'acctive' : '' }}">{{selectpackage.category4}}<view style="background:#FFD02B;height:4rpx;width:100%;margin-top:6rpx;display:{{ tabrid == 4 ? 'block' : 'none' }}"></view></view>
 
 </view> 
 
@@ -23,16 +23,18 @@
               <view>{{item.sp_name}}</view>
               <view>X{{item.shuliang}}</view>
             </view> 
-
           </view>
-
           <view class='zailaiyidan'>
               <view></view>
               <view style='width:480rpx'>
                 <view style="font-size:24rpx;display:{{selected?'block':'none'}};text-align:right">共计 <text style='color:#F10A0A'>{{item.sp_zongshu}}</text>件，总价<text style='color:#F10A0A'>¥{{item.sj_zhong_money}}</text> </view>
 
                 <view  style="font-size:24rpx;display:{{selected?'none':'block'}};text-align:right"><text style='color:#F10A0A'>4</text>  pieces of goods, a total of <text style='color:#F10A0A'>£{{item.sj_ying_money}}</text></view>
-                  <view style='width:100%;display:flex;justify-content:flex-end'><view class='btn'>{{selectpackage.anotherlist}}</view></view>
+                  <view style='width:100%;display:flex;justify-content:flex-end'>
+                    <view style="display:{{item.state==1?'block':'none'}}" class='btn'>{{selectpackage.payment}}</view>
+                    <view class='btn' style="display:{{item.state==2||item.state==3||item.state==4?'block':'none'}}">{{selectpackage.anotherlist}}</view>
+                    <view class='btn' data-id='{{item.id}}' bindtap='toorderdetail' style="display:{{item.state==2||item.state==3||item.state==4?'block':'none'}};margin-left:10rpx">{{selectpackage.orderdetail}}</view>
+                  </view>
               </view>
           </view>
     </view>

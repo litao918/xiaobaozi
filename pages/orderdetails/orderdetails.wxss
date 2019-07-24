@@ -13,3 +13,17 @@ page{
    
    
 }
+.orderdetail_E{
+  font-size:24rpx;
+  color:#999;
+  font-weight:bold;
+  margin-right:44rpx;
+  width: 204rpx;
+  text-align: right
+  }
+.orderdetail_Z{
+  font-size:24rpx;
+  color:#999;
+  font-weight:bold;
+  margin-right:45rpx;
+}

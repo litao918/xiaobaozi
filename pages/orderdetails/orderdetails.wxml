@@ -2,90 +2,80 @@
 
 <view style='background:#fff;padding-top:50rpx;padding-bottom:30rpx;margin:30rpx;text-align: center;border-radius: 10px;'>
     <view style='font-size:36rpx;color:#000;font-weight:bold;padding:0 50rpx;'>{{selectpackage.showcode}}</view>
-    <view class='erweima'>二维码</view>
+    <view class='erweima'><image style='width:100%;height:100%;' src='{{orderlist[0].eq_imager[0]}}'></image></view>
     <view style='font-size:36rpx;color:#999;font-weight:bold;padding-bottom:16rpx;'>{{selectpackage.goodscode}}</view>
-    <view style='font-size:36rpx;color:#000;font-weight:bold;'>157 8736 8046</view>
+    <view style='font-size:36rpx;color:#000;font-weight:bold;'>{{orderlist[0].tihuo}}</view>
 </view>
 
 <view style='background:#fff;padding-top:30rpx;padding-bottom:20rpx;margin:30rpx;text-align: center;border-radius: 10px;'>
     <view style='display:flex;  border-bottom:1rpx solid #EEEEEE;'>
-     <view style='height:26rpx;width:26rpx;padding:20rpx 0;'><image style='height:100%;width:100%;'></image></view>
+     <view style='height:26rpx;width:26rpx;padding:0 16rpx;'><image style='height:100%;width:100%;' src='../../img/merchant.png'></image></view>
      <view style='font-size:32rpx;color:#000;font-weight:bold;'>{{selectpackage.PoundBaozi}}</view>
     </view>
-
     <view style='display:flex;'>
-     <view style='height:26rpx;width:26rpx;padding:30rpx 0;'><image style='height:100%;width:100%;'></image></view>
-     <view style='font-size:24rpx;color:#999;font-weight:bold;padding:30rpx 0;'>伦敦某某某街道伦敦大学西门PoundBaozi店</view>
+     <view style='height:26rpx;width:21rpx;padding:25rpx 16rpx;'><image style='height:100%;width:100%;' src='../../img/地址-icon.png'></image></view>
+     <view style='font-size:24rpx;color:#999;font-weight:bold;padding:30rpx 0;'>{{selected?orderlist[0].dizhi:orderlist[0].ying_dizhi}}</view>
     </view> 
 </view>
 
 <!-- 菜单 -->
 <view style='background:#fff;padding-top:30rpx;padding-bottom:30rpx;margin:30rpx;text-align: center;border-radius: 10px;'>
     <view style='display:flex;'>
-     <view style='height:26rpx;width:26rpx;'><image style='height:100%;width:100%;'></image></view>
+     <view style='height:22rpx;width:33rpx;padding:0 16rpx'><image style='height:100%;width:100%;' src='../../img/menus.png' ></image></view>
      <view style='font-size:32rpx;color:#000;font-weight:bold;'>{{selectpackage.menu}}</view>
     </view>
 
-    <view style='display:flex;padding:12rpx 0; justify-content:space-between;padding-left:50rpx;padding-right:20rpx;'>
-        <view style='font-size:24rpx;color:#333;font-weight:bold;'>小笼包<text style='font-size:24rpx;color:#999;font-weight:bold;'>(1)</text> </view>
-        <view style='font-size:24rpx;color:#000;font-weight:bold;'>£3.80</view>
+    <view style='display:flex;padding:12rpx 0; justify-content:space-between;padding-left:50rpx;padding-right:20rpx;' wx:for="{{orderlist[0].ying_sp}}" wx:for-list="item">
+        <view style='font-size:24rpx;color:#333;font-weight:bold;'>{{selected?item.sp_name:item.sp_name}}<text style='font-size:24rpx;color:#999;font-weight:bold;'>({{item.shuliang}})</text> </view>
+        <view style='font-size:24rpx;color:#000;font-weight:bold;'>{{selectpackage.dollarsign+item.sp_jiage}}</view>
     </view> 
 
-    <view style='display:flex;padding:12rpx 0; justify-content:space-between;padding-left:50rpx;padding-right:20rpx;'>
-        <view style='font-size:24rpx;color:#333;font-weight:bold;'>小笼包<text style='font-size:24rpx;color:#999;font-weight:bold;'>(1)</text> </view>
-        <view style='font-size:24rpx;color:#000;font-weight:bold;'>£3.80</view>
-    </view> 
-
-    <view style='display:flex;padding:12rpx 0; justify-content:space-between;padding-left:50rpx;padding-right:20rpx;'>
-        <view style='font-size:24rpx;color:#333;font-weight:bold;'>小笼包<text style='font-size:24rpx;color:#999;font-weight:bold;'>(1)</text> </view>
-        <view style='font-size:24rpx;color:#000;font-weight:bold;'>£3.80</view>
-    </view> 
 </view>
 
 <!-- 订单信息 -->
 <view style='background:#fff;padding-top:30rpx;padding-bottom:30rpx;margin:30rpx;text-align: center;border-radius: 10px;'>
     <view style='display:flex;'>
-     <view style='height:26rpx;width:26rpx;'><image style='height:100%;width:100%;'></image></view>
-     <view style='font-size:24rpx;color:#000;font-weight:bold;padding-bottom:15rpx;'>{{selectpackage.information}}</view>
+     <view style='height:32rpx;width:26rpx;padding:0 16rpx'><image style='height:100%;width:100%;' src='../../img/menus2.png'></image></view>
+     <view style='font-size:24rpx;color:#000;font-weight:bold;'>{{selectpackage.information}}</view>
     </view>
 
-    <view style='display:flex;padding:12rpx 0; justify-content:left;padding-left:50rpx;padding-right:20rpx;'>
-        <view style='font-size:24rpx;color:#999;font-weight:bold;margin-right:45rpx;'>{{selectpackage.Serialnumber}}:</view>
-        <view style='font-size:24rpx;color:#333;font-weight:bold;'>522014153456</view>
+    <view style="display:flex;padding:12rpx 0; justify-content:left;padding-left:{{selected?'84rpx':'57rpx'}};padding-right:20rpx;">
+        <view class="{{selected?'orderdetail_Z':'orderdetail_E'}}">{{selectpackage.Serialnumber}}</view>
+        <view style='font-size:24rpx;color:#333;font-weight:bold;'>{{orderlist[0].order}}</view>
     </view>  
 
-     <view style='display:flex;padding:12rpx 0; justify-content:left;padding-left:50rpx;padding-right:20rpx;'>
-        <view style='font-size:24rpx;color:#999;font-weight:bold;margin-right:45rpx;'>{{selectpackage.contactphone}}:</view>
-        <view style='font-size:24rpx;color:#333;font-weight:bold;'>522014153456</view>
+     <view style="display:flex;padding:12rpx 0; justify-content:left;padding-left:{{selected?'84rpx':'57rpx'}};padding-right:20rpx;">
+        <view class="{{selected?'orderdetail_Z':'orderdetail_E'}}">{{selectpackage.contactphone}}</view>
+        <view style='font-size:24rpx;color:#333;font-weight:bold;'>{{orderlist[0].phone}}</view>
     </view> 
 
-     <view style='display:flex;padding:12rpx 0; justify-content:left;padding-left:50rpx;padding-right:20rpx;'>
-        <view style='font-size:24rpx;color:#999;font-weight:bold;margin-right:45rpx;'>{{selectpackage.ordertime}}:</view>
-        <view style='font-size:24rpx;color:#333;font-weight:bold;'>522014153456</view>
+     <view style="display:flex;padding:12rpx 0; justify-content:left;padding-left:{{selected?'84rpx':'57rpx'}};padding-right:20rpx;">
+        <view class="{{selected?'orderdetail_Z':'orderdetail_E'}}">{{selectpackage.ordertime}}</view>
+        <view style='font-size:24rpx;color:#333;font-weight:bold;'>{{orderlist[0].addtime}}</view>
     </view> 
 
-     <view style='display:flex;padding:12rpx 0; justify-content:left;padding-left:50rpx;padding-right:20rpx;'>
-        <view style='font-size:24rpx;color:#999;font-weight:bold;margin-right:45rpx;'>{{selectpackage.Paymenttime}}:</view>
-        <view style='font-size:24rpx;color:#333;font-weight:bold;'>522014153456</view>
+     <view style="display:flex;padding:12rpx 0; justify-content:left;padding-left:{{selected?'84rpx':'57rpx'}};padding-right:20rpx;">
+        <view class="{{selected?'orderdetail_Z':'orderdetail_E'}}">{{selectpackage.Paymenttime}}</view>
+        <view style='font-size:24rpx;color:#333;font-weight:bold;'>{{orderlist[0].updatatime}}</view>
     </view> 
 
-     <view style='display:flex;padding:12rpx 0; justify-content:left;padding-left:50rpx;padding-right:20rpx;'>
-        <view style='font-size:24rpx;color:#999;font-weight:bold;margin-right:45rpx;'>{{selectpackage.Purchasequantity}}:</view>
-        <view style='font-size:24rpx;color:#333;font-weight:bold;'>522014153456</view>
+     <view style="display:flex;padding:12rpx 0; justify-content:left;padding-left:{{selected?'84rpx':'57rpx'}};padding-right:20rpx;">
+        <view class="{{selected?'orderdetail_Z':'orderdetail_E'}}">{{selectpackage.Purchasequantity}}:</view>
+        <view style='font-size:24rpx;color:#333;font-weight:bold;'>{{orderlist[0].sp_zongshu}}</view>
     </view> 
 
-     <view style='display:flex;padding:12rpx 0; justify-content:left;padding-left:50rpx;padding-right:20rpx;'>
-        <view style='font-size:24rpx;color:#999;font-weight:bold;margin-right:45rpx;'>{{selectpackage.orderprice}}:</view>
-        <view style='font-size:24rpx;color:#333;font-weight:bold;'>522014153456</view>
+     <view style="display:flex;padding:12rpx 0; justify-content:left;padding-left:{{selected?'84rpx':'57rpx'}};padding-right:20rpx;">
+        <view class="{{selected?'orderdetail_Z':'orderdetail_E'}}">{{selectpackage.orderprice}}</view>
+        <view style='font-size:24rpx;color:#333;font-weight:bold;'>{{selected?selectpackage.dollarsign+orderlist[0].dd_zhong_money:selectpackage.dollarsign+orderlist[0].dd_ying_money}}</view>
     </view> 
 
-     <view style='display:flex;padding:12rpx 0; justify-content:left;padding-left:50rpx;padding-right:20rpx;'>
-        <view style='font-size:24rpx;color:#999;font-weight:bold;margin-right:45rpx;'>{{selectpackage.Preferentialprice}}:</view>
-        <view style='font-size:24rpx;color:#333;font-weight:bold;'>522014153456</view>
+     <view style="display:flex;padding:12rpx 0; justify-content:left;padding-left:{{selected?'84rpx':'57rpx'}};padding-right:20rpx;">
+        <view class="{{selected?'orderdetail_Z':'orderdetail_E'}}">{{selectpackage.Preferentialprice}}</view>
+        <view style='font-size:24rpx;color:#333;font-weight:bold;'>-{{selected?selectpackage.dollarsign+orderlist[0].yh_zhong_money:selectpackage.dollarsign+orderlist[0].yh_ying_money}}</view>
     </view> 
 
-     <view style='display:flex;padding:12rpx 0; justify-content:left;padding-left:50rpx;padding-right:20rpx;'>
-        <view style='font-size:24rpx;color:#999;font-weight:bold;margin-right:45rpx;'>{{selectpackage.Actuallyprice}}:</view>
-        <view style='font-size:24rpx;color:#333;font-weight:bold;'>522014153456</view>
+     <view style="display:flex;padding:12rpx 0; justify-content:left;padding-left:{{selected?'84rpx':'57rpx'}};padding-right:20rpx;">
+        <view class="{{selected?'orderdetail_Z':'orderdetail_E'}}">{{selectpackage.Actuallyprice}}</view>
+        <view style='font-size:24rpx;color:#333;font-weight:bold;'>{{selected?selectpackage.dollarsign+orderlist[0].sj_zhong_money:selectpackage.dollarsign+orderlist[0].sj_ying_money}}</view>
     </view> 
 </view>
