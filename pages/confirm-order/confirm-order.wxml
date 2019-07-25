@@ -9,7 +9,7 @@
     <view class='Timetocall'>
       <view class='pickup-time'>
         <view style='font-size:24rpx;font-weight:bold;color:rgba(153,153,153,1);margin-bottom:15rpx'>{{languagepack.takestime}}</view>
-        <view style='font-size:24rpx;font-weight:bold;color:rgba(51,51,51,1);'>7月10日 18：20<text style='margin-left:35rpx'>></text></view>
+        <view bindtap='choosetime' style='font-size:24rpx;font-weight:bold;color:rgba(51,51,51,1);'>{{month}}月{{day}}日  {{when}}:{{points}}<text style='margin-left:35rpx'>></text></view>
       </view>
       <view class='pickup-phoen'>
         <view style='font-size:24rpx;font-weight:bold;color:rgba(153,153,153,1);margin-bottom:15rpx'>{{languagepack.phonenumber}}</view>
@@ -64,4 +64,32 @@
     <view class='button1' data-id='1' bindtap='since_payment'>{{languagepack.immediatePayment}}</view>
     <view class='button2' data-id='2' bindtap='since_payment'>{{languagepack.tostorepayment}}</view>
   </view>
+</view>
+
+
+
+
+
+<view class='timebox' style="display:{{timeswitch ? 'block' : 'none'}}">
+<view class='XXX' bindtap='shutdowntime'>
+  <image src='../../img/guanbi.png' style='height:100%;width:100%;'></image>
+</view>
+<view class='timestyle'>
+  <picker-view indicator-style="height: 50px;" style="width: 100%; height: 500rpx;" value="{{value}}" bindchange="bindChange">
+    <picker-view-column>
+      <view wx:for="{{months}}" style="line-height: 50px">{{item}}月</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{days}}" style="line-height: 50px">{{item}}日</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{whens}}" style="line-height: 50px">{{item}}时</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{pointss}}" style="line-height: 50px">{{item}}分</view>
+    </picker-view-column>
+  </picker-view>
+  </view>
+
+
 </view>

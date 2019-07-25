@@ -80,7 +80,7 @@ Page({
 
 
     //判断当前选择月份是否大于初始月份，如果大于当前月份则天数重置为选择月份的天数
-  if (this.data.months[val[0]] == currentMonth ){//如果选择当前月份，重新赋值当前月日时分
+    if (this.data.months[val[0]] == currentMonth ){//如果选择当前月份，重新赋值当前月日时分
     const date = new Date()
     //当前月份
     const currentMonth = date.getMonth() + 1
@@ -236,7 +236,7 @@ Page({
 
     } 
     
-  if (this.data.whens[val[2]] == currentHours) {//如果当前选择时等于当前时，重新赋值时分
+    if (this.data.whens[val[2]] == currentHours) {//如果当前选择时等于当前时，重新赋值时分
     const date = new Date()
     //当前月份
     const currentMonth = date.getMonth() + 1
@@ -256,16 +256,15 @@ Page({
       this.setData({
         pointss: pointss
       })
-  }
-
+    }
   
-    //滑动选择的日期赋值
-    this.setData({
-      month: this.data.months[val[0]],
-      day: this.data.days[val[1]],
-      when: xiaoshi,
-      points: fenzhong
-    })
+      //滑动选择的日期赋值
+      this.setData({
+        month: this.data.months[val[0]],
+        day: this.data.days[val[1]],
+        when: xiaoshi,
+        points: fenzhong
+      })
   },
 
   /**
