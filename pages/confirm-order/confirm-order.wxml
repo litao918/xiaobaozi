@@ -70,6 +70,23 @@
 
 
 
+
+
+
+<view class='Dialog' bindtap='chanel' catchtouchmove="filterViewMove" style="{{identification?'display:block':'display:none'}}">
+</view>
+<view class='Dialog-content' style="{{identification?'display:block':'display:none'}}">
+  <view class='phone'>
+    <view class='phonelabel'>{{languagepack.phonenumber}}</view>
+    <input class='phoneinput' bindblur='setphone'></input>
+  </view>
+  <view class='button'>
+    <button class='chanel' bindtap='chanel'>{{languagepack.chancel}}</button>
+    <button class='confirm' bindtap='confirm' >{{languagepack.comfirm}}</button>
+  </view>
+</view>
+
+
 <view class='timebox' style="display:{{timeswitch ? 'block' : 'none'}}">
 <view class='XXX' bindtap='shutdowntime'>
   <image src='../../img/guanbi.png' style='height:100%;width:100%;'></image>
@@ -89,18 +106,5 @@
       <view wx:for="{{pointss}}" style="line-height: 50px">{{item}}分</view>
     </picker-view-column>
   </picker-view>
-  </view>
-
-
-<view class='Dialog' bindtap='chanel' catchtouchmove="filterViewMove" style="{{identification?'display:block':'display:none'}}">
-</view>
-<view class='Dialog-content' style="{{identification?'display:block':'display:none'}}">
-  <view class='phone'>
-    <view class='phonelabel'>{{languagepack.phonenumber}}</view>
-    <input class='phoneinput' bindblur='setphone'></input>
-  </view>
-  <view class='button'>
-    <button class='chanel' bindtap='chanel'>{{languagepack.chancel}}</button>
-    <button class='confirm' bindtap='confirm' >{{languagepack.comfirm}}</button>
   </view>
 </view>
