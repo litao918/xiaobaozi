@@ -121,6 +121,12 @@ Page({
       url: '../orderdetails/orderdetails?orderid='+orderid,
     })
   },
+  // 再来一单跳转首页
+  again(){
+    wx:wx.switchTab({
+      url: '../index/index',
+    })
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */

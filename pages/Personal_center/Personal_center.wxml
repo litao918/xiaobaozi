@@ -32,7 +32,7 @@
 <view class='wodedingdan' bindtap='coupon'>
     <view>{{languagebao.coupons}}</view>
    <view style='display:flex'>
-    <view style='padding-right:20rpx;color:#999;'>2张</view>
+    <view style='padding-right:20rpx;color:#999;'>{{total+languagebao.numtext}}</view>
      <view style='height:25rpx;width:20rpx;'><image style='height:100%;width:100%' src='../../img/dayuhao.png'></image></view>
     </view>
 </view>

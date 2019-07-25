@@ -1,5 +1,6 @@
 // pages/Personal_center/Personal_center.js
 const app = getApp()
+var call = require("../../utils/api.js")
 Page({
 
   /**
@@ -16,6 +17,7 @@ Page({
       language:'语言选择',
       //我的优惠券
       coupons:'我的优惠券',
+      numtext:'张'
     },
     English: {
       //
@@ -26,6 +28,7 @@ Page({
       language: 'language',
       //我的优惠券
       coupons: 'My coupons',
+      numtext:" coupon"
     },
     selection: false,
     language: '',
@@ -33,8 +36,9 @@ Page({
     //用户ID
     userid:1,
     // 用户信息
-    userinform:''
-
+    userinform:'',
+    // 优惠券数量
+    total:0,
   },
 
   // 我的订单
@@ -83,7 +87,6 @@ Page({
       url: '../coupon/coupon',
     })
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
@@ -140,9 +143,32 @@ Page({
    */
   onShow: function () {
     const language = app.globalData.language
-    console.log("我是"+language)
+    console.log("我是"+language);
+    this.coupontotal()
   },
-
+  // 优惠券数量
+  coupontotal() {
+    var url = "appi/user/user_yhj_shuliang";
+    var data = {
+      id: 1
+    }
+    call.request(url, data, this.coupontotalSuccess, this.coupontotalFail)
+  },
+  // 获取优惠券数量请求回调成功
+  coupontotalSuccess(res) {
+    console.log(res);
+    if(res.code==1){
+      this.setData({
+        total:res.data
+      })
+    }else{
+      wx.showToast({
+        title: res.msg,
+        icon: 'none',
+        duration: 1500
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */
