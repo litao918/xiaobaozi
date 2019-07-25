@@ -30,33 +30,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var type = app.globalData.language
-    var userid = this.data.userid
-    var that = this
-    wx.request({
-      url: 'http://baoziwang.cqlink.club/appi/user/user_sp_list',
-      data: {
-        id: userid,
-        type: type
-      },
-      method: 'POST',
-      success: function (res) {
-        console.log(res.data.code)
-      
-        if (res.data.code == 2){
-          that.setData({
-            there: false
-        })
-        }else{
-          that.setData({
-            there: true
-          })
-        }
-
-      }
+    this.setData({
+        selected: app.globalData.language
     })
+    this.getMerchandisecoupon()//获取商品优惠券
+    this.getFullcutcoupons()//满减券
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -73,7 +52,58 @@ Page({
    })
     this.selectLanguagePack()
   },
+  // 获得商品优惠券
+  getMerchandisecoupon() {
+    var data = {
+      id: this.data.userid,
+      type: this.data.selected
+    }
+    var that = this
+    wx.request({
+      url: 'http://baoziwang.cqlink.club/appi/user/user_sp_list',
+      data: data,
+      method: 'POST',
+      success: function (res) {
+        console.log(res.data.code)
+        if (res.data.code == 2) {
+          that.setData({
+            there: false
+          })
+        } else {
+          that.setData({
+            there: true
+          })
+        }
 
+      }
+    })
+  },
+  // 获得商品优惠券
+  getFullcutcoupons(){
+    var data = {
+      id: this.data.userid,
+      type: this.data.selected
+    }
+    var that = this
+    wx.request({
+      url: 'http://baoziwang.cqlink.club/appi/user/user_yhj_list',
+      data: data,
+      method: 'POST',
+      success: function (res) {
+        console.log(res.data.code)
+        if (res.data.code == 2) {
+          that.setData({
+            there: false
+          })
+        } else {
+          that.setData({
+            there: true
+          })
+        }
+
+      }
+    })
+  },
   //语言包的选择
   selectLanguagePack() {
     if (this.data.selected == 0) {

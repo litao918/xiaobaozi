@@ -90,7 +90,6 @@ margin-bottom: 31rpx;
   width: 100rpx;
   height: 100rpx;
   /* border: 1rpx red solid; */
-  background-color: red;
 }
 /* 商品数据 */
 .Product-data{
@@ -206,4 +205,92 @@ margin-bottom: 31rpx;
   right: 30rpx;
   top: 20rpx;
   z-index: 999;
+}
+/* 弹窗 */
+.Dialog{
+  width: 100%;
+  height: 1223rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background:rgba(0,0,0,1);
+  opacity:0.8;
+}
+/* 弹窗内容 */
+.Dialog-content{
+  width: 470rpx;
+  height: 370rpx;
+  background:#FFFFFF;
+  border-radius:10px;
+  position: fixed;
+  z-index: 9999;
+  left: 140rpx;
+  top:240rpx;
+  padding-top: 58rpx;
+}
+/* 配送方式 */
+.distribution{
+  width: 100%;
+  height: 29rpx;
+  text-align: center;
+  line-height: 29rpx;
+  font-size:30rpx;
+  font-weight:bold;
+  color:rgba(51,51,51,1);
+  margin-bottom: 74rpx;
+}
+/* 弹窗电话 */
+.phone{
+  width: 100%;
+  height: 75rpx;
+  margin-top:90rpx;
+  display: flex;
+  box-sizing: border-box;
+}
+/* 弹窗电话label */
+.phonelabel{
+ height: 100%;
+ width: 96rpx;
+ margin-left: 20rpx;
+ line-height:75rpx; 
+ margin-right: 30rpx;
+ font-size: 24rpx;
+ color:rgba(153,153,153,1);
+}
+/* 弹窗电话input */
+.phoneinput{
+  width: 280rpx;
+  height: 100%;
+  border-radius:33rpx;
+  background-color: rgba(245,245,245,1);
+  text-align: center;
+  font-size: 24rpx;
+  font-weight: bold;
+}
+/* 弹窗按钮 */
+.button{
+  width: 100%;
+  height: 64rpx;
+  display: flex;
+  margin-top: 106rpx;
+  box-sizing: border-box;
+}
+/* 弹窗取消按钮 */
+.chanel{
+  width: 147rpx;
+  height: 100%;
+  background-color: rgba(245,245,245,1);
+  border-radius:33rpx;
+  font-size: 24rpx;
+}
+/* 弹窗确定按钮 */
+.confirm{
+  width: 147rpx;
+  height: 100%;
+  background-color: rgba(252,211,40,1);
+  border-radius:33rpx;
+  font-size: 24rpx;
+}
+button::after{
+  border: none;
 }

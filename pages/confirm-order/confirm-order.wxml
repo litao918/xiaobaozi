@@ -13,7 +13,7 @@
       </view>
       <view class='pickup-phoen'>
         <view style='font-size:24rpx;font-weight:bold;color:rgba(153,153,153,1);margin-bottom:15rpx'>{{languagepack.phonenumber}}</view>
-          <view style='font-size:24rpx;font-weight:bold;color:rgba(51,51,51,1);'>18323398512<text style='margin-left:35rpx'>></text></view>
+          <view style='font-size:24rpx;font-weight:bold;color:rgba(51,51,51,1);' bindtap='getphone'>{{phone}}<text style='margin-left:35rpx'>></text></view>
       </view>
     </view>
   </view>
@@ -92,4 +92,15 @@
   </view>
 
 
+<view class='Dialog' bindtap='chanel' catchtouchmove="filterViewMove" style="{{identification?'display:block':'display:none'}}">
+</view>
+<view class='Dialog-content' style="{{identification?'display:block':'display:none'}}">
+  <view class='phone'>
+    <view class='phonelabel'>{{languagepack.phonenumber}}</view>
+    <input class='phoneinput' bindblur='setphone'></input>
+  </view>
+  <view class='button'>
+    <button class='chanel' bindtap='chanel'>{{languagepack.chancel}}</button>
+    <button class='confirm' bindtap='confirm' >{{languagepack.comfirm}}</button>
+  </view>
 </view>
