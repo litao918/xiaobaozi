@@ -35,26 +35,27 @@ var monthmix = function getMonthDays(year, month) {
   return thisDate.getDate();
 }
 
-
-for (let i = currentMonth; i <= 12; i++) {
-  months.push(i)
-}
-
-for (let i = currentDate; i <= mixdate; i++) {
-  days.push(i)
-}
-for (let i = currentHours; i <= 24; i++) {
-  if (i < 10) {
-    i = '0' + i
+  for (let i = currentMonth; i <= 12; i++) {
+    months.push(i)
   }
-  whens.push(i)
-}
-for (let i = currentMinutes; i <= 60; i++) {
-  if (i < 10) {
-    i = '0' + i
+
+  for (let i = currentDate; i <= mixdate; i++) {
+    days.push(i)
   }
-  pointss.push(i)
-}
+  for (let i = currentHours; i <= 24; i++) {
+    if (i < 10) {
+      i = '0' + i
+    }
+    whens.push(i)
+  }
+  for (let i = currentMinutes; i <= 60; i++) {
+    if (i < 10) {
+      i = '0' + i
+    }
+    pointss.push(i)
+  }
+
+
 Page({
 
   /**
@@ -361,7 +362,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
     var allmoney = options.allmoney
     this.setData({
       allmoney: allmoney,
@@ -436,10 +436,11 @@ Page({
     }
   },
 
-  //跳转优惠券页面
+  //跳转优惠券页面=
   tocoupon(){
+    var allmoney = this.data.allmoney
     wx.navigateTo({
-      url: '../coupon/coupon?id=1'
+      url: '../coupon/coupon?id=1' + '&allmoney=' + allmoney
     })
   },
 
@@ -470,13 +471,12 @@ Page({
         goodsarry[i].sp_shuliang = goodsarr[i].geshu
         goodsarry[i].jiage = goodsarr[i].money
       } 
-      console.log('-----------------------------------')
-      console.log(goodsarry)
-      console.log('-----------------------------------')
+      app.globalData.shopingid = goods// 存储购物车的商品id到全局变量
       this.setData({
           goodslist: res.data, 
           goodsnum: goodsnum,  
-          goodsarry: goodsarry
+          goodsarry: goodsarry,
+          goods: goods
       })
       // 请求优惠券
       wx.request({

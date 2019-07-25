@@ -43,6 +43,7 @@ App({
   globalData: {
     userInfo: null,
     language:1,//中英文切换状态
-    commodity:""//购物车商品
+    commodity:"",//购物车商品
+    shopingid:[],//购物车商品ID
   }
 })

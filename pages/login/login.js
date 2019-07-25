@@ -41,7 +41,7 @@ Page({
       var nickName = userInfo.nickName
       wx.setStorageSync('userInfo', userInfo)
       wx.request({
-        url: 'http://baoziwang.cqlink.club/login/login',
+        url: 'http://baoziwang.cqlink.club/appi/login/login',
         data: {
           code: code,
           name: nickName,
@@ -50,12 +50,17 @@ Page({
         method: 'POST',
         success: function (res) {
           console.log(res)
-
-
-          //授权成功后，跳转进入小程序首页
-          wx.switchTab({
-            url: '/pages/index/index'
-          })
+          if(res.data.code == 1){
+            wx.setStorageSync('openid', res.data.data.op_id)
+            wx.setStorageSync('userid', res.data.data.id)
+            app.globalData.language = res.data.data.type
+            //授权成功后，跳转进入小程序首页
+            wx.switchTab({
+              url: '/pages/index/index'
+            })
+          }else{
+            console.log('登录失败')
+          }
         }
       })
     } else {

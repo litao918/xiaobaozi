@@ -68,6 +68,12 @@ Page({
     pointss: pointss,
     points: currentMinutes,
     value: [0,0,0,0],
+    dd:[
+      { A: 4, B: 5, C: 6 },
+      { A: 4, B: 5, C: 6 },
+      { A: 4, B: 5, C: 6 },
+      { A: 4, B: 5, C: 6 }
+    ]
   },
 
    
