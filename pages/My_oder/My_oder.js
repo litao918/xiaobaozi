@@ -34,11 +34,35 @@ Page({
       orderdetail: "OrderDetail"
     },//英文包
 
-    selectpackage: ''//当前选中的语言包
+    selectpackage: '',//当前选中的语言包
+    zhifuzhuangtai:'未支付'
   },
 
   xuanxiangka: function (e) {
     console.log(e.currentTarget.dataset.id)
+    var ztid = e.currentTarget.dataset.id
+
+    if (ztid == 1){
+      this.setData({
+        zhifuzhuangtai:'未支付'
+      })
+    } else if (ztid == 2){
+      this.setData({
+        zhifuzhuangtai: '已支付'
+      })
+    } else if (ztid == 3) {
+      this.setData({
+        zhifuzhuangtai: '已完成'
+      })
+    } else if (ztid == 4) {
+      this.setData({
+        zhifuzhuangtai: '未取货'
+      })
+    }
+
+
+
+
     var id = e.currentTarget.dataset.id
     this.setData({
       tabrid: id

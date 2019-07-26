@@ -14,7 +14,7 @@
   <view style='padding:30rpx;background:#fff;margin-top:30rpx;'  wx:for="{{orderlist}}" wx:for-list="item">
           <view class='dingdan'>
                <view style='font-size:24rpx;color:#999;padding-bottom:30rpx;'>{{selectpackage.ordertime}}<text style='color:#333333'>{{item.addtime}}</text> </view>
-              <view style='color:#F10A0A;font-size:28rpx;font-weight:bold;'>{{selectpackage.category2}}</view>
+              <view style='color:#F10A0A;font-size:28rpx;font-weight:bold;'>{{zhifuzhuangtai}}</view>
           </view>
 
           <view style='border-radius: 10rpx;padding:30rpx; background: #f5f5f5;margin-bottom:27rpx;'>
