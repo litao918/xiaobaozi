@@ -42,7 +42,7 @@
   <view class='discount-coupon' bindtap='tocoupon'>
     <view class='Coupon-details'>
       <view>{{languagepack.accountpayable}}</view>
-      <view>1{{languagepack.cardavailable}}</view>
+      <view>{{youhuiquannum}}{{languagepack.cardavailable}}</view>
     </view>
   </view>
   <view class='Preferential-module'>
@@ -53,7 +53,7 @@
     </view>
     <view class='Preferential-item'>
       <view style='font-size:24rpx;font-weight:bold;color:rgba(153,153,153,1);line-height:90rpx;'>{{languagepack.preferential}}</view>
-      <view style='font-size:24rpx;font-weight:bold;color:rgba(245,11,11,1);line-height:90rpx;'>¥0</view>
+      <view style='font-size:24rpx;font-weight:bold;color:rgba(245,11,11,1);line-height:90rpx;'>¥{{youhuiprice}}</view>
     </view>
     <view class='Preferential-item'>
       <view style='font-size:24rpx;font-weight:bold;color:rgba(153,153,153,1);line-height:90rpx;'>{{languagepack.copewith}}</view>

@@ -45,5 +45,9 @@ App({
     language:1,//中英文切换状态
     commodity:"",//购物车商品
     shopingid:[],//购物车商品ID
+    allmoney:'',//订单总价
+    youhuiprice:0,//优惠价格
+    youhuiquanarr:[],//优惠券数组
+    phone:'',//电话号码
   }
 })

@@ -24,7 +24,10 @@
         <view style='margin-top:19rpx; font-size:18rpx;font-family:PingFang-SC-Bold;font-weight:bold;color:rgba(153,153,153,1);'>{{selectpackage.validity}}<text>{{item.updatime}}</text></view>
       </view>
     </view>
-    <view class='use' data-id='{{item.id}}' bindtap='couponsclick'>{{selectpackage.use}}</view>
+    <view wx:if='{{selected == 1}}' class='use' data-id='{{item.id}}'  data-leixingid='{{item.leixing}}' data-price="{{item.zhong_jians}}" bindtap='couponsclick'>{{selectpackage.use}}</view>
+
+    <view wx:else class='use' data-id='{{item.id}}'  data-leixingid='{{item.leixing}}' data-price="{{item.ying_jians}}" bindtap='couponsclick'>{{selectpackage.use}}</view>
+
   </view>
 
 

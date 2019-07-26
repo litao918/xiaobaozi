@@ -217,8 +217,11 @@ Page({
   },
   // 跳转订单确认接口
   toconfirmorder(){
+
+  
     var shoppingcart = this.data.goodslist
     var allmoney = this.data.allmoney
+    app.globalData.allmoney = allmoney
     console.log('***************')
     console.log(shoppingcart)
     console.log('***************')

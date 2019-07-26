@@ -137,13 +137,19 @@ Page({
     //提货地址ID
     addressid:'',
     //控制时间选择器
-    timeswitch:false
+    timeswitch:false,
+    //优惠价格
+    youhuiprice:'',
+    //优惠券数组
+    youhuiquanarr:[],
+    //优惠券数量
+    youhuiquannum:0
 
   },
 
   // 支付提交
   since_payment:function(e){
-    console.log(e.currentTarget.dataset.id)
+  
     //支付方式
     var fangshi = e.currentTarget.dataset.id 
     //中英文类型
@@ -152,11 +158,46 @@ Page({
     var tihuotime = this.data.address
     //用户ID
     var u_id = this.data.userid
-    //商品数组
-    var goodsarry = this.data.goodsarry
     //商品总数
-    var goodsnum = this.data.goodsnum
+    var sp_zongshu = this.data.goodsnum
+    //提货地址id
+    var d_id = this.data.addressid
+    //电话
+    var phone = this.data.phone
+    //商品详情数组
+    var orderList = this.data.goodsarry
+    //优惠券id类型数组
+    var yhj = this.data.youhuiquanarr
 
+    //总价
+    var dd_money = this.data.allmoney
+    //优惠
+    var yh_money = this.data.youhuiprice
+    //实际支付
+    var sj_money = this.data.souldprice
+
+    wx.request({
+      url: 'http://baoziwang.cqlink.club/appi/order/order_daodian',
+      data:{
+        d_id: d_id,
+        phone: phone,
+        tihuotime: tihuotime,
+        fangshi: fangshi,
+        sp_zongshu: sp_zongshu,
+        type: type,
+        orderList: orderList,
+        yhj: yhj,
+        dd_money: dd_money,
+        yh_money: yh_money,
+        sj_money: sj_money,
+        u_id: u_id,
+      },
+      method:'POST',
+      success:function(res){
+        console.log(res)
+      }
+    })
+    
   },
 
  
@@ -362,11 +403,50 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var allmoney = options.allmoney
+    var userid = wx.getStorageSync('userid')
+    var allmoney = app.globalData.allmoney
+    var id = options.id
+    var leixing = options.leixingid
+    var that = this
     this.setData({
-      allmoney: allmoney,
-      souldprice: allmoney
+      userid: userid
     })
+     
+    if (options.id){
+      if (leixing == 2 || leixing == 4) {//可叠加
+        var youhuiquanarr2 = { j_id: id, leixing: leixing }
+        app.globalData.youhuiprice += options.price
+        app.globalData.youhuiquanarr = app.globalData.youhuiquanarr.push(youhuiquanarr)
+        var souldprice = allmoney - app.globalData.price
+        this.setData({
+          youhuiquanarr: app.globalData.youhuiquanarr,
+          youhuiprice: app.globalData.price,
+          allmoney: allmoney,
+          souldprice: souldprice
+        })
+      } else {//不可叠加
+        var souldprice = allmoney - options.price
+        var youhuiquanarr1 = []
+        youhuiquanarr1.push({ j_id: id, leixing: leixing })
+          console.log('777777777777777777777777')
+        console.log(youhuiquanarr1)
+        that.setData({
+          youhuiquanarr: youhuiquanarr1,
+          youhuiprice: options.price,
+          souldprice: souldprice,
+          allmoney: allmoney
+        })
+      }
+    }else{
+      that.setData({
+        allmoney: allmoney,
+        souldprice: allmoney,
+        youhuiprice: 0
+      })
+
+    }
+   
+   
 
     var type = app.globalData.language
     var that= this
@@ -412,8 +492,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    var phone = wx.getStorageSync('phone')
+    if(phone == ''){
+      phone = '请填写电话号码'
+    }
     this.setData({
-      selected: app.globalData.language
+      selected: app.globalData.language,
+      phone: phone
     })
     this.selectLanguagePack();//语言包选择
     this.getproductlist();//商品列表
@@ -431,7 +516,6 @@ Page({
       var data = this.data.chinese
       this.setData({
         languagepack: data,
-        phone: "请填写"
       })
     }
   },
@@ -455,8 +539,13 @@ Page({
   },
   // 购物车商品列表请求成功回调函数
   getproductlistSuccess(res) {
+    console.log(res)
+    console.log('222222222222222222222')
+
     var type = app.globalData.language
     var u_id = this.data.userid
+    var allmoney = this.data.allmoney
+    var that = this
     if (res.code == 1) {
       var goodsarr = res.data
       var  goods = []
@@ -478,17 +567,20 @@ Page({
           goodsarry: goodsarry,
           goods: goods
       })
-      // 请求优惠券
+      // 请求优惠券数量
       wx.request({
-        url: 'http://baoziwang.cqlink.club/appi/order/shop_yhj',
+        url: 'http://baoziwang.cqlink.club/appi/order/yhj_keyong',
         data:{
           s_id: goods,
-          type:type,
+          allmoney: allmoney,
           u_id: u_id
         },
         method:'POST',
         success:function(res){
-          console.log(res)
+          that.setData({
+            youhuiquannum: res.data.data
+          })
+
         }
       })
      
@@ -553,6 +645,7 @@ Page({
         duration: 1500
       })
     } else if (this.data.phonerule){
+      wx.setStorageSync('phone', this.data.phonecopy)
       this.setData({
         phone:this.data.phonecopy,
         identification:0

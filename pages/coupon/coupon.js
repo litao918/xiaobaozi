@@ -35,6 +35,7 @@ Page({
   // 使用优惠券
   couponsclick:function(e){
     console.log(e.currentTarget.dataset)
+
     if(e.currentTarget.dataset.id == null){
       console.log(555555)
       wx.switchTab({
@@ -42,8 +43,12 @@ Page({
       })
 
     }else{
+      var id = e.currentTarget.dataset.id
+      var leixingid = e.currentTarget.dataset.leixingid 
+      var price = e.currentTarget.dataset.price 
+
      wx.navigateTo({
-       url: '../confirm-order/confirm-order',
+       url: '../confirm-order/confirm-order?id=' + id + '&leixingid=' + leixingid + '&price=' + price,
      })
     }
   },
@@ -99,13 +104,6 @@ Page({
         success: function (res) {
           if (res.data.code == 1) {
             var arr = res.data.data
-            console.log(arr)
-
-             arr.splice(0, 1)
-            console.log('ooooooooooooo')
-            console.log(arr)
-
-
             that.setData({
               reductiondata: arr,
               there: true
